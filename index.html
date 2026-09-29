@@ -115,13 +115,35 @@ body[data-page=london] .site-header{position:sticky;inset:auto;top:0}
 .coldweather-client{display:block;margin-top:12px}
 @media(max-width:760px){.tile-coldweather{grid-row:3;aspect-ratio:1.1}}
 
+/* Updated work index: a full-width landscape film, followed by paired stories. */
+.work-bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+.work-bento .tile-match{grid-column:1/-1;grid-row:1;aspect-ratio:16/9;align-self:stretch}
+.work-bento .tile-tiro{grid-column:1;grid-row:2;aspect-ratio:4/5}
+.work-bento .tile-oner{grid-column:2;grid-row:2;aspect-ratio:auto;align-self:stretch}
+.work-bento .tile-film{grid-column:1;grid-row:3;aspect-ratio:3/4}
+.work-bento .tile-coldweather{grid-column:2;grid-row:3;aspect-ratio:auto;align-self:stretch}
+.work-bento .tile-aspinal{grid-column:1/-1;grid-row:4;aspect-ratio:2/1}
+.work-tile:hover>video{transform:scale(1.035)}
+.work-tile>.tile-hover-media,.tile-supporting-media{position:absolute;inset:0;width:100%;height:100%;opacity:0;pointer-events:none;transition:opacity .3s}
+.work-tile:hover>.tile-hover-media,.work-tile:focus-visible>.tile-hover-media,.tile-film:hover .tile-supporting-media,.tile-film:focus-within .tile-supporting-media{opacity:1}
+.tile-supporting-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile-supporting-media img:last-child{opacity:0}
+.tile-film:hover .tile-supporting-media img:last-child,.tile-film:focus-within .tile-supporting-media img:last-child{animation:summer-frames 4s steps(1,end) infinite}
+@keyframes summer-frames{0%,49%{opacity:0}50%,100%{opacity:1}}
+.contact .contact-bottom{margin-top:36px}
+.site-header .brand{width:clamp(210px,21vw,285px);height:76px;margin-left:0;overflow:visible}
+.site-header .brand img{display:block;width:100%;height:auto;max-height:68px;object-fit:contain;transform:none}
+@media(max-width:1000px){.site-header .brand{width:210px}}
+@media(max-width:760px){.site-header .brand{width:205px;height:66px;margin-left:0}.work-bento .tile-match{aspect-ratio:16/9}.work-bento .tile-aspinal{aspect-ratio:1.25}.tile-aspinal h3{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.tile-film:hover .tile-supporting-media img:last-child,.tile-film:focus-within .tile-supporting-media img:last-child{animation:none}}
+
 </style>
   
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header" id="site-header">
-  <a class="brand" href="#" aria-label="Seventy7 — choose a studio"><img src="assets/seventy7-logo.jpg" alt="seventy7" width="1400" height="520"></a>
+  <a class="brand" href="#" aria-label="Seventy7 — choose a studio"><img src="assets/seventy7-logo.jpg" alt="seventy7" width="410" height="118"></a>
   <nav class="page-nav" id="page-nav" aria-label="Main navigation"></nav>
 <button class="menu-button" aria-label="Open menu" aria-haspopup="dialog">Menu +</button></header><dialog class="full-menu"><button class="menu-close" aria-label="Close menu">Close ×</button><span class="mono">SEVENTY7 / FIND YOUR WAY</span><nav><a href="#london/work">Work</a><a href="#london/services">Services</a><a href="#london/studio">Studio</a><a href="#london/contact">Contact</a></nav></dialog>
 <main id="main" tabindex="-1"><div id="view"></div><noscript><p class="no-script">Seventy7 — London Creative Studio & Manchester Marketing and Communications. Please enable JavaScript to explore our work, or <a href="mailto:hello@seventy7group.com">email us</a>.</p></noscript></main>
@@ -144,9 +166,10 @@ body[data-page=london] .site-header{position:sticky;inset:auto;top:0}
 const projects = [
   {slug:'arsenal-tiro',name:'Arsenal Tiro',client:'Arsenal',type:'Sport / Campaign',format:'Photography',image:'tiro-01.jpg',alt:'Arsenal Tiro portrait against a deep red studio backdrop',description:'A bold red backdrop. A new perspective on the kit. Portraits and movement bring the Arsenal Tiro collection into focus.',images:[['tiro-02.jpg','Arsenal Tiro model adjusting a black jacket'],['tiro-03.jpg','Arsenal Tiro portrait captured in motion'],['tiro-04.jpg','Full-length Arsenal Tiro styling against a red backdrop'],['tiro-01.jpg','Two models wearing black Arsenal Tiro jackets']],next:'arsenal-matchday'},
   {slug:'arsenal-matchday',name:'Arsenal Matchday',client:'Arsenal',type:'Sport / Lifestyle',format:'Photography',image:'matchday-03.jpg',alt:'Friends wearing Arsenal clothing outside the stadium',description:'The people, the places, the anticipation. Matchday style follows the journey from a shop full of club memories to the stadium steps.',images:[['matchday-01.jpg','Two models outside an Arsenal memorabilia shop','wide'],['matchday-02.jpg','Arsenal clothing worn in a memorabilia-filled café'],['matchday-07.jpg','Close-up of Arsenal Matchday outfits'],['matchday-04.jpg','Arsenal graphic details in front of the stadium','wide'],['matchday-05.jpg','Blue and red Arsenal jacket in the café'],['matchday-06.jpg','Arsenal styling and jacket draped over a red chair']],next:'arsenal-summer'},
-  {slug:'arsenal-summer',name:'Arsenal Summer',client:'Arsenal',type:'Sport / Film',format:'Film',video:true,next:'oner-active'},
-  {slug:'oner-active',name:'Oner Active',client:'Oner Active',type:'Activewear / Still life',format:'Still life',image:'oner-03.jpg',alt:'Pink Oner Active halter top arranged on layered paper',description:'SoftMotion / Icon. A tactile product story, told through layered prints, handwritten notes and the quiet details of a creative archive.',images:[['oner-01.jpg','White Oner Active strappy vest on a textured grey surface'],['oner-02.jpg','Dark Oner Active leggings arranged on layered paper'],['oner-04.jpg','Photographic prints showing Oner garments on a rail'],['oner-05.jpg','Pink halter bra photograph with paper approval notes'],['oner-06.jpg','Oner Active product archive in an open ring binder'],['oner-07.jpg','Pink Oner Active halter neck top on taped paper']],next:'arsenal-cold-weather'},
-  {slug:'arsenal-cold-weather',name:'Arsenal Cold Weather',client:'Adidas x Arsenal',type:'Sport / Campaign',format:'Photography',image:'coldweather-01.jpg',alt:'Two models wearing black and red Arsenal fleece hoodies against a dark studio backdrop',description:'Cold-weather layers. Close-up attitude. Black and red fleece, soft haze and dramatic studio light bring texture to the foreground.',images:[['coldweather-02.jpg','Arsenal Cold Weather campaign','wide'],['coldweather-03.jpg','Arsenal Cold Weather editorial portrait'],['coldweather-04.jpg','Arsenal Cold Weather fleece styling']],next:'arsenal-tiro'}
+  {slug:'arsenal-summer',name:'Arsenal Summer',client:'Arsenal',type:'Sport / Film',format:'Film',video:true,images:[['summer-01.jpg','Arsenal Summer campaign photograph'],['summer-02.jpg','Arsenal Summer campaign photograph']],next:'oner-active'},
+  {slug:'oner-active',name:'Oner Active',client:'Oner Active',type:'Activewear / Still life',format:'Still life',image:'oner-08.jpg',alt:'Pink Oner Active halter top arranged on layered paper',description:'SoftMotion / Icon. A tactile product story, told through layered prints, handwritten notes and the quiet details of a creative archive.',images:[['oner-09.jpg','Oner Active campaign photograph'],['oner-03.jpg','Pink Oner Active halter top on layered paper'],['oner-01.jpg','White Oner Active strappy vest on a textured grey surface'],['oner-02.jpg','Dark Oner Active leggings arranged on layered paper'],['oner-04.jpg','Photographic prints showing Oner garments on a rail'],['oner-05.jpg','Pink halter bra photograph with paper approval notes'],['oner-06.jpg','Oner Active product archive in an open ring binder'],['oner-07.jpg','Pink Oner Active halter neck top on taped paper']],next:'arsenal-cold-weather'},
+  {slug:'arsenal-cold-weather',name:'Arsenal Cold Weather',client:'Adidas x Arsenal',type:'Sport / Campaign',format:'Photography',image:'coldweather-01.jpg',alt:'Two models wearing black and red Arsenal fleece hoodies against a dark studio backdrop',description:'Cold-weather layers. Close-up attitude. Black and red fleece, soft haze and dramatic studio light bring texture to the foreground.',images:[['coldweather-02.jpg','Arsenal Cold Weather campaign','wide'],['coldweather-03.jpg','Arsenal Cold Weather editorial portrait'],['coldweather-04.jpg','Arsenal Cold Weather fleece styling']],next:'aspinal-sunglasses'},
+  {slug:'aspinal-sunglasses',name:'Aspinal Sunglasses',client:'Aspinal of London',type:'Accessories / Campaign',format:'Photography',image:'aspinal-01.jpg',alt:'Aspinal of London sunglasses campaign',description:'Aspinal of London. Sunglasses in focus.',images:[['aspinal-02.jpg','Aspinal of London sunglasses campaign detail']],next:'arsenal-tiro'}
 ];
 
 const view = document.querySelector('#view');
@@ -159,7 +182,7 @@ let gateStarted=false;
 const email = 'hello@seventy7group.com';
 const arrow = '<span aria-hidden="true">↗</span>';
 const imageURL = file => `assets/${file}`;
-const imageSize = file => file.startsWith('coldweather')?(file==='coldweather-01.jpg'?'width="2400" height="1601"':file==='coldweather-02.jpg'?'width="2400" height="1350"':'width="1601" height="2400"'):file.startsWith('matchday')?'width="2000" height="1333"':file.startsWith('tiro')?'width="1080" height="1440"':file.startsWith('oner')?'width="1600" height="2000"':'width="1400" height="520"';
+const imageSize = file => file.startsWith('aspinal')?'width="2400" height="2400"':['oner-08.jpg','oner-09.jpg'].includes(file)?'width="1920" height="2400"':file.startsWith('summer')?'': file.startsWith('coldweather')?(file==='coldweather-01.jpg'?'width="2400" height="1601"':file==='coldweather-02.jpg'?'width="2400" height="1350"':'width="1601" height="2400"'):file.startsWith('matchday')?'width="2000" height="1333"':file.startsWith('tiro')?'width="1080" height="1440"':file.startsWith('oner')?'width="1600" height="2000"':'width="1400" height="520"';
 const img = (file,alt,cls='',eager=false) => `<img ${imageSize(file)} class="${cls}" src="${imageURL(file)}" alt="${file.startsWith('coldweather')?alt:file.startsWith('oner')?'Product and still-life reference photograph':'Fashion and portrait reference photograph'}" loading="${eager?'eager':'lazy'}" ${eager?'fetchpriority="high"':''}>`;
 const mail = (subject='A new project') => `mailto:${email}?subject=${encodeURIComponent(subject)}`;
 
@@ -183,26 +206,26 @@ function gateway(){return `
   <div class="gateway-bottom"><span>Independent thinking. Shared ambition.</span><a href="${mail()}">${email} ${arrow}</a></div>
 </section>`;}
 
-function contact(city){return `<section class="contact wrap" id="${city}-contact"><div class="section-label"><span>(07) / Your move</span><span>${city==='london'?'London / Creative Production':'Manchester / Marketing & Communications'}</span></div><a class="contact-title" href="${mail()}"><h2>LET’S MAKE<br>SOMETHING<br>LOUD.</h2>${arrow}</a><div class="contact-bottom"><a class="contact-email" href="${mail()}">${email}</a><button class="confetti-star" aria-label="A little creative spark">✳</button><a href="#${city}" class="mono">BACK TO TOP ↑</a></div></section>`;}
+function contact(city){return `<section class="contact wrap" id="${city}-contact"><div class="section-label"><span>(07) / Your move</span><span>${city==='london'?'London / Creative Production':'Manchester / Marketing & Communications'}</span></div><div class="contact-bottom"><a class="contact-email" href="${mail()}">${email}</a><button class="confetti-star" aria-label="A little creative spark">✳</button><a href="#${city}" class="mono">BACK TO TOP ↑</a></div></section>`;}
 
 
 function london(){return `
 <section class="poster-hero" aria-labelledby="london-title">
  <div class="hero-photo">${img('coldweather-01.jpg','Two models in black and red Arsenal fleece hoodies, photographed against a dark studio backdrop','',true)}</div>
  <div class="sharp-window" aria-hidden="true">${img('coldweather-01.jpg','','',true)}</div>
- <div class="hero-top mono"><span>Independent eyes.<br>London, UK <span class="live-time"></span></span><a href="https://www.google.com/maps/search/?api=1&query=The%20Piper%20Building%2C%20Peterborough%20Road%2C%20London%20SW6%203EF" target="_blank" rel="noopener noreferrer" aria-label="Find Seventy7 London at The Piper Building, Peterborough Road, Fulham, London SW6 3EF">51.4660° N<br>0.1933° W</a><span class="booking">● Let’s make something</span></div>
  <h1 id="london-title" class="opening-accessible-title">Seventy7 London creative production studio</h1>
  <div class="hero-bottom"><p>GOOD WORK.<br>GREAT INSTINCTS.</p><span class="mono">Creative production studio<br>Still. Moving. Anything but ordinary.</span><a href="#london/work" class="round-link" aria-label="Explore selected work">↓</a></div>
  <span class="hero-index mono">(01) / CREATIVE PRODUCTION</span>
 </section>
 <div class="tape-zone" aria-hidden="true"><div class="tape"><span>PHOTOGRAPHY / RETOUCH / CGI / STYLING / VIDEO / ART DIRECTION / PHOTOGRAPHY / RETOUCH / CGI / STYLING / VIDEO / ART DIRECTION / </span></div><div class="tape second"><span>IDEAS INTO IMAGES. / SEVENTY7 LONDON / IDEAS INTO IMAGES. / SEVENTY7 LONDON / IDEAS INTO IMAGES. / SEVENTY7 LONDON / </span></div></div>
 <section class="manifesto wrap" id="london-studio"><div class="section-label"><span>(01) / A point of view</span><span>Many minds. One studio.</span></div><h2>WE MAKE<br><span class="ghost">YOU LOOK.</span> <span class="image-pill">${img('tiro-02.jpg','Detail from Arsenal Tiro')}</span><br>THEN LOOK<br>AGAIN<span class="red">*</span></h2><div class="manifesto-foot"><span class="big-star" aria-hidden="true">✳</span><p>Photographers. Retouchers. Stylists. Filmmakers. Art directors. CGI artists. Different instincts, working in the same direction. From the first scribble to the final frame.</p><a class="underlined" href="#london/services">Meet the disciplines ↗</a></div></section>
-<section class="work-index wrap" id="london-work"><div class="section-label"><span>(02) / Selected work</span><span>Five stories. No single formula.</span></div><div class="work-heading"><h2>ALL EYES<br>ON THE WORK<span class="red">.</span></h2><span class="mono">INDEX<br>01—05</span></div><div class="work-bento">
+<section class="work-index wrap" id="london-work"><div class="section-label"><span>(02) / Selected work</span><span>Six stories. No single formula.</span></div><div class="work-heading"><h2>ALL EYES<br>ON THE WORK<span class="red">.</span></h2><span class="mono">INDEX<br>01—06</span></div><div class="work-bento">
  <a class="work-tile tile-tiro" href="#project/arsenal-tiro">${img('tiro-01.jpg','Arsenal Tiro campaign portraits')}<div class="tile-copy"><span class="mono">(01) / CAMPAIGN</span><h3>Arsenal Tiro ↗</h3></div></a>
- <a class="work-tile tile-match" href="#project/arsenal-matchday">${img('matchday-01.jpg','Arsenal Matchday outside a memorabilia shop')}<div class="tile-copy"><span class="mono">(02) / LIFESTYLE</span><h3>Matchday ↗</h3></div></a>
- <div class="work-tile tile-film"><video class="motion-video" src="assets/arsenal-summer.mp4" muted loop playsinline preload="metadata" aria-label="Arsenal Summer preview"></video><a class="tile-copy" href="#project/arsenal-summer"><span class="mono">(03) / MOVING IMAGE</span><h3>Summer in motion ↗</h3></a><button class="motion-toggle" data-motion-toggle aria-label="Play film preview">Play preview</button></div>
- <a class="work-tile tile-oner" href="#project/oner-active">${img('oner-03.jpg','Oner Active SoftMotion garment on layered paper')}<div class="tile-copy"><span class="mono">(04) / STILL LIFE</span><h3>Oner Active ↗</h3></div></a>
+ <a class="work-tile tile-match" href="#project/arsenal-matchday"><video class="motion-video matchday-video" src="assets/matchday-hero.mp4" poster="assets/matchday-01.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Arsenal Matchday campaign film"></video><div class="tile-copy"><span class="mono">(02) / LIFESTYLE</span><h3>Matchday ↗</h3></div></a>
+ <div class="work-tile tile-film"><video class="motion-video" src="assets/arsenal-summer.mp4" muted loop playsinline preload="metadata" aria-label="Arsenal Summer preview"></video><div class="tile-supporting-media">${img('summer-01.jpg','Arsenal Summer supporting photograph')}${img('summer-02.jpg','Arsenal Summer supporting photograph')}</div><a class="tile-copy" href="#project/arsenal-summer"><span class="mono">(03) / MOVING IMAGE</span><h3>Summer in motion ↗</h3></a><button class="motion-toggle" data-motion-toggle aria-label="Play film preview">Play preview</button></div>
+ <a class="work-tile tile-oner" href="#project/oner-active">${img('oner-08.jpg','Oner Active campaign cover')}${img('oner-09.jpg','Oner Active campaign photograph','tile-hover-media')}<div class="tile-copy"><span class="mono">(04) / STILL LIFE</span><h3>Oner Active ↗</h3></div></a>
  <a class="work-tile tile-coldweather" href="#project/arsenal-cold-weather">${img('coldweather-01.jpg','Two models in black and red Arsenal Cold Weather fleece hoodies')}<div class="tile-copy"><span class="mono">(05) / <span class="coldweather-category">CAMPAIGN</span></span><h3>Arsenal Cold Weather ↗</h3><span class="mono coldweather-client">Adidas x Arsenal</span></div></a>
+ <a class="work-tile tile-aspinal" href="#project/aspinal-sunglasses">${img('aspinal-01.jpg','Aspinal of London sunglasses campaign')}${img('aspinal-02.jpg','Aspinal of London sunglasses campaign detail','tile-hover-media')}<div class="tile-copy"><span class="mono">(06) / <span class="coldweather-category">ACCESSORIES</span></span><h3>Aspinal Sunglasses ↗</h3><span class="mono coldweather-client">Aspinal of London</span></div></a>
 </div></section>
 <section class="disciplines wrap" id="london-services"><div class="section-label"><span>(03) / What we do</span><span>Pick your obsession.</span></div><div class="discipline-layout"><div class="service-list">${['Photography','Retouching','CGI','Styling','Video','Art direction'].map((name,i)=>`<button class="service-row ${i===0?'active':''}" data-service="${i}" aria-expanded="${i===0}"><span class="mono">(0${i+1})</span><span>${name}</span><span class="service-plus">↗</span></button>`).join('')}</div><aside class="service-preview"><div id="service-image">${img('tiro-02.jpg','Arsenal Tiro portrait')}</div><span class="mono" id="service-label">01 / PHOTOGRAPHY</span><p id="service-description">People, product, personality. Images with something to say.</p><a class="underlined" href="${mail('Creative production enquiry')}">Let’s talk production ↗</a></aside></div></section>
 <section class="craft-section wrap"><div class="section-label"><span>(04) / Between the frames</span><span>The details do the talking.</span></div><div class="craft-grid"><div class="craft-image">${img('oner-05.jpg','Oner Active artwork showing layered photographs, notes and material')}<span class="mono">ONER ACTIVE / A CLOSER LOOK</span></div><div class="craft-copy"><h2>SMALL<br>DECISIONS.<br><span>BIG FEELING.</span></h2><p>A fold in the fabric. The edge of a shadow. Paper you can almost feel. The difference lives in the details.</p><a class="underlined" href="#project/oner-active">Inside the Oner Active series ↗</a></div></div></section>
@@ -240,6 +263,7 @@ function setupMotion(){
   }),{threshold:.3});
   view.querySelectorAll('.motion-video').forEach(video=>{
     const button=video.parentElement.querySelector('[data-motion-toggle]');
+    if(!button){if(reducedMotion.matches)video.pause();mediaObserver.observe(video);return;}
     const update=()=>{button.textContent=video.paused?'Play preview':'Pause preview';button.setAttribute('aria-label',button.textContent);};
     video.addEventListener('play',update);video.addEventListener('pause',update);
     button.addEventListener('click',()=>{if(video.paused){video.dataset.paused='false';video.play().catch(()=>{});}else{video.dataset.paused='true';video.pause();}});
@@ -309,7 +333,7 @@ function landingGateMarkup(){return `<section class="studio-opening landing-gate
 </section>`;}
 
 // Real root opening. Eight shots, 90→60ms holds, each followed by a 25ms pure-white frame.
-// Reel: 0.80s. Black/impact/hold/split: 1.51s. Total: 2.31s, after media decode.
+// Reel: 0.80s. Black/impact/hold/split: 1.6725s. Total: 2.4725s, after media decode.
 function setupOpening(){
  if(gateStarted)return;gateStarted=true;
  if(!document.documentElement.classList.contains('gate-pending'))return;
@@ -392,8 +416,8 @@ function setupOpening(){
   timeline.set(hero.querySelectorAll('.impact-type'),{textShadow:'-7px 0 #FF2E12,7px 0 #F2A11B'},impact+.19);
   timeline.set(hero.querySelectorAll('.impact-type'),{textShadow:'none'},impact+.19+1/60);
   timeline.call(()=>changePhase('split'),[],split);
-  timeline.to(hero.querySelector('.impact-left'),{xPercent:-100,duration:.65,ease:'power3.inOut'},split);
-  timeline.to(hero.querySelector('.impact-right'),{xPercent:100,duration:.65,ease:'power3.inOut'},split);
+  timeline.to(hero.querySelector('.impact-left'),{xPercent:-100,duration:.8125,ease:'power3.inOut'},split);
+  timeline.to(hero.querySelector('.impact-right'),{xPercent:100,duration:.8125,ease:'power3.inOut'},split);
 
   hero.dataset.openingDuration=timeline.duration().toFixed(2);timeline.play(0);
  }).catch(settle);
