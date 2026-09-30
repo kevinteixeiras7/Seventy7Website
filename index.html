@@ -312,7 +312,7 @@ reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches)view.query
 document.querySelector('.skip-link').addEventListener('click',event=>{event.preventDefault();const main=document.querySelector('#main');main.focus();main.scrollIntoView({behavior:'instant'});});
 document.addEventListener('click',event=>{const link=event.target.closest('a[href^="#"]');if(link&&!link.classList.contains('skip-link')&&link.getAttribute('href')===location.hash){event.preventDefault();route();}});
 window.addEventListener('hashchange',route);
-setTimeout(()=>{route();setupOpening();},0);
+setTimeout(()=>{try{route();}finally{setupOpening();}},0);
 
 const serviceData=[['tiro-02.jpg','People, product, personality. Images with something to say.'],['tiro-01.jpg','The considered finish. Colour, texture and detail, held in balance.'],['oner-02.jpg','Build the image beyond the camera. New possibilities in three dimensions.'],['matchday-05.jpg','Shape, silhouette, attitude. The details that give an image its character.'],['tiro-03.jpg','Find the rhythm. From a single gesture to the whole story.'],['oner-06.jpg','One clear point of view. Every visual decision pulling in the same direction.']];
 function setupEditorial(){
@@ -372,7 +372,7 @@ function setupOpening(){
  };
  skip.addEventListener('click',settle);
  const preferenceChanged=()=>{if(reducedMotion.matches)settle();};reducedMotion.addEventListener('change',preferenceChanged);
- const visibilityChanged=()=>{if(document.hidden&&!finished)settle();};document.addEventListener('visibilitychange',visibilityChanged);
+ const visibilityChanged=()=>{if(finished||cancelled||!timeline)return;if(document.hidden)timeline.pause();else timeline.resume();};document.addEventListener('visibilitychange',visibilityChanged);
  const trapFocus=event=>{
   if(event.key==='Escape'){event.preventDefault();settle();return;}
   if(event.key!=='Tab')return;
@@ -402,14 +402,14 @@ function setupOpening(){
    .to(hero.querySelector('.split-manchester'),{xPercent:100,duration:.6,ease:'power3.inOut'},0);
  };hero.addEventListener('click',enterStudio);
  skip.focus({preventScroll:true});
- if(reducedMotion.matches||!window.gsap){settle();return;}
+ if(reducedMotion.matches||!window.gsap){hero.dataset.openingSkipReason=reducedMotion.matches?'reduced-motion':'animation-library-unavailable';settle();return;}
  document.body.classList.add('opening-playing');header.inert=true;finalLayer.inert=true;
- timeout=setTimeout(settle,8000); // Failure recovery only; no animation timings are driven by timers.
- const preload=file=>new Promise(resolve=>{const image=new Image();image.alt='';image.decoding='async';image.onload=async()=>{try{await image.decode();resolve(image);}catch{resolve(null);}};image.onerror=()=>resolve(null);image.src=file==='seventy7-mark.png'?introMarkURL:imageURL(file);});
- Promise.all([Promise.all(files.map(preload)),preload('oner-06.jpg'),preload('seventy7-mark.png')]).then(([frames,manchester,mark])=>{
+ const preload=file=>new Promise(resolve=>{const image=new Image();image.alt='';image.decoding='async';image.onload=async()=>{try{await image.decode();}catch{}resolve(image.naturalWidth?image:null);};image.onerror=()=>resolve(null);image.src=file==='seventy7-mark.png'?introMarkURL:imageURL(file);});
+ Promise.all([Promise.all(files.map(preload)),preload('seventy7-mark.png')]).then(([frames,mark])=>{
   if(cancelled||finished)return;
   frames=frames.filter(Boolean);
-  if(!frames.length||!mark||reducedMotion.matches){settle();return;}
+  if(reducedMotion.matches){hero.dataset.openingSkipReason='reduced-motion';settle();return;}
+  if(!frames.length||!mark){hero.dataset.openingSkipReason='media-unavailable';console.error('Seventy7 intro: required media could not load.',{loadedPhotos:frames.length,markLoaded:Boolean(mark)});settle();return;}
   clearTimeout(timeout);frames.forEach(frame=>reel.append(frame));
   const gs=window.gsap;gs.set(frames,{visibility:'hidden'});gs.set(hero.querySelectorAll('.impact-type'),{scale:1.3,visibility:'hidden'});
   const changePhase=phase=>hero.dataset.openingPhase=phase;
@@ -438,8 +438,12 @@ function setupOpening(){
   timeline.to(hero.querySelector('.impact-left'),{xPercent:-100,duration:.8125,ease:'power3.inOut'},split);
   timeline.to(hero.querySelector('.impact-right'),{xPercent:100,duration:.8125,ease:'power3.inOut'},split);
 
-  hero.dataset.openingDuration=timeline.duration().toFixed(2);timeline.play(0);
- }).catch(settle);
+  hero.dataset.openingDuration=timeline.duration().toFixed(2);
+  // Paint the decoded first frame before advancing the sub-second reel.
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+   if(cancelled||finished)return;timeline.play(0);if(document.hidden)timeline.pause();
+  }));
+ }).catch(error=>{hero.dataset.openingSkipReason='animation-error';console.error('Seventy7 intro failed:',error);settle();});
 }
 
 </script>
