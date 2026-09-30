@@ -149,6 +149,107 @@ body[data-page=london] .site-header{position:sticky;inset:auto;top:0}
 .site-header .brand img{width:100%;height:auto;max-height:none;max-width:100%;aspect-ratio:410/118;object-fit:contain;transform:none;mix-blend-mode:normal}
 @media(max-width:760px){.site-header .brand{width:180px;min-height:60px;height:auto;margin-left:0}}
 
+/* Editorial pacing — MOX image scale, ANCC spacing and quiet supporting type. */
+#view .poster-hero{margin-bottom:48px}
+#view .manifesto{padding-top:98px;padding-bottom:135px}
+#view .work-index{padding-top:83px;padding-bottom:143px}
+#view .disciplines{padding-top:105px;padding-bottom:150px}
+#view .craft-section{padding-top:98px;padding-bottom:120px}
+#view .process{padding-top:105px;padding-bottom:105px}
+#view .studio-counts{padding-top:53px;padding-bottom:68px}
+#view .collective{padding-top:105px;padding-bottom:135px}
+#view .contact{padding-top:75px;padding-bottom:68px}
+#view .manchester-hero{padding-top:51px;padding-bottom:98px}
+#view .manchester-services{padding-top:165px;padding-bottom:135px}
+#view .connected-studios{padding-top:98px;padding-bottom:105px}
+#view .case-heading{padding-top:60px;padding-bottom:68px}
+#view .case-info{padding-top:90px;padding-bottom:113px}
+#view .next-project{padding-top:128px;padding-bottom:128px}
+#view .section-label{font-size:10px;line-height:1.6;font-weight:400}
+#view .section-label>span:last-child{opacity:.65}
+#view .tape-zone{height:120px;padding-top:36px}
+#view .tape.second{display:none}
+#view .tape{font-size:19px;font-weight:600;transform:rotate(-2deg)}
+#view .tape span{animation-duration:50s}
+#view .manifesto h2{font-size:clamp(52px,7.6vw,132px);margin:88px 0 72px;line-height:1.02}
+#view .manifesto-foot{grid-template-columns:1fr 1fr;gap:56px}
+#view .manifesto-foot .big-star{display:none}
+#view .manifesto-foot p,#view .collective-bottom p{font-size:16px;line-height:1.65;font-weight:400;max-width:42ch}
+#view .manifesto-foot p{color:#656057}
+#view .collective-bottom p{color:#c4bfb6}
+#view .image-pill{width:15%;height:.58em}
+#view .work-heading{margin:72px 0 68px}
+#view .work-bento{gap:32px}
+#view .tile-copy h3{font-size:clamp(20px,2vw,30px);font-weight:500;letter-spacing:-.03em;line-height:1.15}
+#view .tile-copy>.mono{font-size:9px;font-weight:400;opacity:.8}
+#view .tile-copy{padding:65px 28px 28px}
+#view .service-row{padding:23px 0;transition:color .5s ease}
+#view .service-row>span:nth-child(2){font-size:clamp(25px,3vw,44px);font-weight:400;letter-spacing:-.035em;line-height:1.15}
+#view .service-row.active>span:nth-child(2){font-size:clamp(42px,5.9vw,90px);font-weight:800;letter-spacing:-.06em}
+#view .service-preview p{font-size:15px;line-height:1.6;max-width:29ch;color:#656057}
+#view .service-plus{font-size:22px;font-weight:400}
+#view .craft-grid{gap:8vw}
+#view .craft-copy p{font-size:16px;line-height:1.65;max-width:32ch;color:#ccc0b8}
+#view .process-heading{font-family:'Anton',Impact,sans-serif;font-size:clamp(54px,7vw,112px);line-height:1.05;margin:72px 0 64px}
+#view .process-number{font-family:'Space Mono',monospace;font-size:20px;font-weight:400;color:#777168}
+#view .process-row summary{grid-template-columns:65px 1fr 2fr 30px}
+#view .process-row h3{font-size:25px;font-weight:500}
+#view .process-line{font-size:13px;color:#777168}
+#view .process-content p{font-size:15px;line-height:1.65;max-width:40ch}
+#view .studio-counts{grid-template-columns:1fr 1fr 2fr;align-items:end}
+#view .studio-counts strong{font-size:clamp(45px,6vw,90px);font-family:'Bricolage Grotesque',sans-serif;font-weight:400;line-height:1.15}
+#view .studio-counts>div:last-child strong{font-family:'Anton',Impact,sans-serif;font-size:clamp(100px,15vw,230px)}
+#view .studio-counts .mono{font-size:9px;line-height:1.6;margin-top:18px;max-width:21ch}
+#view .collective h2{font-size:clamp(58px,8.5vw,140px);line-height:1.02;margin:75px 0 65px}
+#view .confetti-star{font-size:28px}
+#view .contact-email{font-size:clamp(24px,3.7vw,58px)}
+#view .contact-bottom>.mono{font-size:9px;opacity:.65}
+#view .marketing-service h3{font-size:clamp(24px,3vw,40px);font-weight:400}
+#view .marketing-service p,#view .manchester-intro p{font-size:17px;line-height:1.65;max-width:44ch}
+#view .case-info>p{font-size:clamp(20px,2vw,28px);font-weight:400;line-height:1.5;max-width:42ch}
+#view .case-gallery{gap:36px}
+#view .ghost{transition:color 1.5s cubic-bezier(.22,1,.36,1)}
+#view .work-tile>img,#view .work-tile>video{transition:transform 1s cubic-bezier(.22,1,.36,1),filter 1s ease}
+#view .page-reveal{opacity:0;transform:translateY(20px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1);transition-delay:var(--reveal-delay,0ms)}
+#view .page-reveal.in-view,#view .page-reveal:focus-within{opacity:1;transform:translateY(0)}
+@media(max-width:760px){
+ #view .poster-hero{margin-bottom:30px}
+ #view .manifesto{padding-top:60px;padding-bottom:83px}
+ #view .work-index{padding-top:53px;padding-bottom:83px}
+ #view .disciplines,#view .craft-section{padding-top:60px;padding-bottom:83px}
+ #view .process,#view .collective{padding-top:60px;padding-bottom:75px}
+ #view .studio-counts{padding-top:30px;padding-bottom:45px;gap:18px}
+ #view .contact{padding-top:75px;padding-bottom:68px}
+ #view .manchester-hero{padding-top:38px;padding-bottom:68px}
+ #view .manchester-services{padding-top:98px;padding-bottom:83px}
+ #view .connected-studios{padding-top:68px;padding-bottom:75px}
+ #view .case-heading{padding-top:42px;padding-bottom:48px}
+ #view .case-info{padding-top:53px;padding-bottom:68px}
+ #view .next-project{padding-top:90px;padding-bottom:90px}
+ #view .manifesto h2{font-size:10.5vw;margin:60px 0 48px}
+ #view .manifesto-foot{grid-template-columns:1fr;gap:28px}
+ #view .manifesto-foot a{grid-column:auto;justify-self:start}
+ #view .work-heading{margin:48px 0 42px}
+ #view .work-bento{gap:18px}
+ #view .tile-copy{padding:50px 14px 18px}
+ #view .tile-copy h3{font-size:20px}
+ #view .tile-copy>.mono{font-size:8px}
+ #view .service-row{padding:20px 0}
+ #view .service-row>span:nth-child(2){font-size:27px}
+ #view .service-row.active>span:nth-child(2){font-size:10vw}
+ #view .process-heading{font-size:12vw;margin:48px 0 40px}
+ #view .process-row summary{grid-template-columns:38px 1fr 24px;gap:14px}
+ #view .process-number{font-size:15px}
+ #view .process-row h3{font-size:23px}
+ #view .studio-counts strong{font-size:10vw}
+ #view .studio-counts>div:last-child strong{font-size:23vw}
+ #view .studio-counts .mono{font-size:8px}
+ #view .collective h2{font-size:11vw;margin:48px 0 42px}
+ #view .contact-email{font-size:5.5vw}
+ #view .case-gallery{gap:20px}
+}
+@media(prefers-reduced-motion:reduce){#view .page-reveal{opacity:1;transform:none;transition:none!important}#view .tape span{animation:none}}
+
 </style>
   
 </head>
@@ -176,11 +277,11 @@ body[data-page=london] .site-header{position:sticky;inset:auto;top:0}
 </script>
 <script>
 const projects = [
-  {slug:'arsenal-tiro',name:'Arsenal Tiro',client:'Arsenal',type:'Sport / Campaign',format:'Photography',image:'tiro-01.jpg',alt:'Arsenal Tiro portrait against a deep red studio backdrop',description:'A bold red backdrop. A new perspective on the kit. Portraits and movement bring the Arsenal Tiro collection into focus.',images:[['tiro-02.jpg','Arsenal Tiro model adjusting a black jacket'],['tiro-03.jpg','Arsenal Tiro portrait captured in motion'],['tiro-04.jpg','Full-length Arsenal Tiro styling against a red backdrop'],['tiro-01.jpg','Two models wearing black Arsenal Tiro jackets']],next:'arsenal-matchday'},
-  {slug:'arsenal-matchday',name:'Arsenal Matchday',client:'Arsenal',type:'Sport / Lifestyle',format:'Photography',image:'matchday-03.jpg',alt:'Friends wearing Arsenal clothing outside the stadium',description:'The people, the places, the anticipation. Matchday style follows the journey from a shop full of club memories to the stadium steps.',images:[['matchday-01.jpg','Two models outside an Arsenal memorabilia shop','wide'],['matchday-02.jpg','Arsenal clothing worn in a memorabilia-filled café'],['matchday-07.jpg','Close-up of Arsenal Matchday outfits'],['matchday-04.jpg','Arsenal graphic details in front of the stadium','wide'],['matchday-05.jpg','Blue and red Arsenal jacket in the café'],['matchday-06.jpg','Arsenal styling and jacket draped over a red chair']],next:'arsenal-summer'},
+  {slug:'arsenal-tiro',name:'Arsenal Tiro',client:'Arsenal',type:'Sport / Campaign',format:'Photography',image:'tiro-01.jpg',alt:'Arsenal Tiro portrait against a deep red studio backdrop',description:'Portraits and movement for Arsenal Tiro, set against deep red.',images:[['tiro-02.jpg','Arsenal Tiro model adjusting a black jacket'],['tiro-03.jpg','Arsenal Tiro portrait captured in motion'],['tiro-04.jpg','Full-length Arsenal Tiro styling against a red backdrop'],['tiro-01.jpg','Two models wearing black Arsenal Tiro jackets']],next:'arsenal-matchday'},
+  {slug:'arsenal-matchday',name:'Arsenal Matchday',client:'Arsenal',type:'Sport / Lifestyle',format:'Photography',image:'matchday-03.jpg',alt:'Friends wearing Arsenal clothing outside the stadium',description:'Matchday style, from the memorabilia shop to the stadium steps.',images:[['matchday-01.jpg','Two models outside an Arsenal memorabilia shop','wide'],['matchday-02.jpg','Arsenal clothing worn in a memorabilia-filled café'],['matchday-07.jpg','Close-up of Arsenal Matchday outfits'],['matchday-04.jpg','Arsenal graphic details in front of the stadium','wide'],['matchday-05.jpg','Blue and red Arsenal jacket in the café'],['matchday-06.jpg','Arsenal styling and jacket draped over a red chair']],next:'arsenal-summer'},
   {slug:'arsenal-summer',name:'Arsenal Summer',client:'Arsenal',type:'Sport / Film',format:'Film',video:true,images:[['summer-01.jpg','Arsenal Summer campaign photograph'],['summer-02.jpg','Arsenal Summer campaign photograph']],next:'oner-active'},
-  {slug:'oner-active',name:'Oner Active',client:'Oner Active',type:'Activewear / Still life',format:'Still life',image:'oner-08.jpg',alt:'Pink Oner Active halter top arranged on layered paper',description:'SoftMotion / Icon. A tactile product story, told through layered prints, handwritten notes and the quiet details of a creative archive.',images:[['oner-09.jpg','Oner Active campaign photograph'],['oner-03.jpg','Pink Oner Active halter top on layered paper'],['oner-01.jpg','White Oner Active strappy vest on a textured grey surface'],['oner-02.jpg','Dark Oner Active leggings arranged on layered paper'],['oner-04.jpg','Photographic prints showing Oner garments on a rail'],['oner-05.jpg','Pink halter bra photograph with paper approval notes'],['oner-06.jpg','Oner Active product archive in an open ring binder'],['oner-07.jpg','Pink Oner Active halter neck top on taped paper']],next:'arsenal-cold-weather'},
-  {slug:'arsenal-cold-weather',name:'Arsenal Cold Weather',client:'Adidas x Arsenal',type:'Sport / Campaign',format:'Photography',image:'coldweather-01.jpg',alt:'Two models wearing black and red Arsenal fleece hoodies against a dark studio backdrop',description:'Cold-weather layers. Close-up attitude. Black and red fleece, soft haze and dramatic studio light bring texture to the foreground.',images:[['coldweather-02.jpg','Arsenal Cold Weather campaign','wide'],['coldweather-03.jpg','Arsenal Cold Weather editorial portrait'],['coldweather-04.jpg','Arsenal Cold Weather fleece styling']],next:'aspinal-sunglasses'},
+  {slug:'oner-active',name:'Oner Active',client:'Oner Active',type:'Activewear / Still life',format:'Still life',image:'oner-08.jpg',alt:'Pink Oner Active halter top arranged on layered paper',description:'SoftMotion / Icon. Product photography with layered prints and handwritten notes.',images:[['oner-09.jpg','Oner Active campaign photograph'],['oner-03.jpg','Pink Oner Active halter top on layered paper'],['oner-01.jpg','White Oner Active strappy vest on a textured grey surface'],['oner-02.jpg','Dark Oner Active leggings arranged on layered paper'],['oner-04.jpg','Photographic prints showing Oner garments on a rail'],['oner-05.jpg','Pink halter bra photograph with paper approval notes'],['oner-06.jpg','Oner Active product archive in an open ring binder'],['oner-07.jpg','Pink Oner Active halter neck top on taped paper']],next:'arsenal-cold-weather'},
+  {slug:'arsenal-cold-weather',name:'Arsenal Cold Weather',client:'Adidas x Arsenal',type:'Sport / Campaign',format:'Photography',image:'coldweather-01.jpg',alt:'Two models wearing black and red Arsenal fleece hoodies against a dark studio backdrop',description:'Black and red fleece, soft haze and studio light. Texture in focus.',images:[['coldweather-02.jpg','Arsenal Cold Weather campaign','wide'],['coldweather-03.jpg','Arsenal Cold Weather editorial portrait'],['coldweather-04.jpg','Arsenal Cold Weather fleece styling']],next:'aspinal-sunglasses'},
   {slug:'aspinal-sunglasses',name:'Aspinal Sunglasses',client:'Aspinal of London',type:'Accessories / Campaign',format:'Photography',image:'aspinal-01.jpg',alt:'Aspinal of London sunglasses campaign',description:'Aspinal of London. Sunglasses in focus.',images:[['aspinal-02.jpg','Aspinal of London sunglasses campaign detail']],next:'arsenal-tiro'}
 ];
 
@@ -190,6 +291,8 @@ const pageNav = document.querySelector('#page-nav');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let currentPage = '';
 let mediaObserver;
+let pageRevealObserver;
+let pageRevealRoot;
 let gateStarted=false;
 const email = 'hello@seventy7group.com';
 const arrow = '<span aria-hidden="true">↗</span>';
@@ -218,7 +321,7 @@ function gateway(){return `
   <div class="gateway-bottom"><span>Independent thinking. Shared ambition.</span><a href="${mail()}">${email} ${arrow}</a></div>
 </section>`;}
 
-function contact(city){return `<section class="contact wrap" id="${city}-contact"><div class="section-label"><span>(07) / Your move</span><span>${city==='london'?'London / Creative Production':'Manchester / Marketing & Communications'}</span></div><div class="contact-bottom"><a class="contact-email" href="${mail()}">${email}</a><button class="confetti-star" aria-label="A little creative spark">✳</button><a href="#${city}" class="mono">BACK TO TOP ↑</a></div></section>`;}
+function contact(city){return `<section class="contact wrap" id="${city}-contact"><div class="section-label"><span>(07) / Contact</span><span>${city==='london'?'London / Creative Production':'Manchester / Marketing & Communications'}</span></div><div class="contact-bottom"><a class="contact-email" href="${mail()}">${email}</a><button class="confetti-star" aria-label="A little creative spark">✳</button><a href="#${city}" class="mono">BACK TO TOP ↑</a></div></section>`;}
 
 
 function london(){return `
@@ -226,7 +329,7 @@ function london(){return `
  <div class="hero-photo">${img('coldweather-01.jpg','Two models in black and red Arsenal fleece hoodies, photographed against a dark studio backdrop','',true)}</div>
  <div class="sharp-window" aria-hidden="true">${img('coldweather-01.jpg','','',true)}</div>
  <h1 id="london-title" class="opening-accessible-title">Seventy7 London creative production studio</h1>
- <div class="hero-bottom"><p>GOOD WORK.<br>GREAT INSTINCTS.</p><span class="mono">Creative production studio<br>Still. Moving. Anything but ordinary.</span><a href="#london/work" class="round-link" aria-label="Explore selected work">↓</a></div>
+ <div class="hero-bottom"><p>GOOD WORK.<br>GREAT INSTINCTS.</p><span class="mono">Creative production studio<br>Photography, film and art direction.</span><a href="#london/work" class="round-link" aria-label="Explore selected work">↓</a></div>
  <span class="hero-index mono">(01) / CREATIVE PRODUCTION</span>
 </section>
 <div class="tape-zone" aria-hidden="true"><div class="tape"><span>PHOTOGRAPHY / RETOUCH / CGI / STYLING / VIDEO / ART DIRECTION / PHOTOGRAPHY / RETOUCH / CGI / STYLING / VIDEO / ART DIRECTION / </span></div><div class="tape second"><span>IDEAS INTO IMAGES. / SEVENTY7 LONDON / IDEAS INTO IMAGES. / SEVENTY7 LONDON / IDEAS INTO IMAGES. / SEVENTY7 LONDON / </span></div></div>
@@ -239,8 +342,8 @@ function london(){return `
 <!-- HEADLINE OPTION 3 — To select, replace only the live h2 above with this h2.
 <h2>LESS NOISE.<br><span class="ghost">MORE NERVE.</span> <span class="image-pill">${img('tiro-02.jpg','Detail from Arsenal Tiro')}</span><br>WORK THAT<br>HOLDS UP<span class="red">*</span></h2>
 -->
-<div class="manifesto-foot"><span class="big-star" aria-hidden="true">✳</span><p>Photographers. Retouchers. Stylists. Filmmakers. Art directors. CGI artists. Different instincts, working in the same direction. From the first scribble to the final frame.</p><a class="underlined" href="#london/services">Meet the disciplines ↗</a></div></section>
-<section class="work-index wrap" id="london-work"><div class="section-label"><span>(02) / Selected work</span><span>Six stories. No single formula.</span></div><div class="work-heading"><h2>ALL EYES<br>ON THE WORK<span class="red">.</span></h2><span class="mono">INDEX<br>01—06</span></div><div class="work-bento">
+<div class="manifesto-foot"><span class="big-star" aria-hidden="true">✳</span><p>Photography, retouching, styling, film, art direction and CGI. One team, from first idea to final image.</p><a class="underlined" href="#london/services">Meet the disciplines ↗</a></div></section>
+<section class="work-index wrap" id="london-work"><div class="section-label"><span>(02) / Selected work</span><span>Selected projects / 01—06</span></div><div class="work-heading"><h2>SELECTED<br>WORK<span class="red">.</span></h2><span class="mono">INDEX<br>01—06</span></div><div class="work-bento">
  <a class="work-tile tile-tiro" href="#project/arsenal-tiro">${img('tiro-01.jpg','Arsenal Tiro campaign portraits')}<div class="tile-copy"><span class="mono">(01) / CAMPAIGN</span><h3>Arsenal Tiro ↗</h3></div></a>
  <a class="work-tile tile-match" href="#project/arsenal-matchday"><video class="motion-video matchday-video" src="assets/matchday-hero.mp4" poster="assets/matchday-01.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Arsenal Matchday campaign film"></video><div class="tile-copy"><span class="mono">(02) / LIFESTYLE</span><h3>Matchday ↗</h3></div></a>
  <div class="work-tile tile-film"><video class="motion-video" src="assets/arsenal-summer.mp4" muted loop playsinline preload="metadata" aria-label="Arsenal Summer preview"></video><div class="tile-supporting-media">${img('summer-01.jpg','Arsenal Summer supporting photograph')}${img('summer-02.jpg','Arsenal Summer supporting photograph')}</div><a class="tile-copy" href="#project/arsenal-summer"><span class="mono">(03) / MOVING IMAGE</span><h3>Summer in motion ↗</h3></a><button class="motion-toggle" data-motion-toggle aria-label="Play film preview">Play preview</button></div>
@@ -248,17 +351,17 @@ function london(){return `
  <a class="work-tile tile-coldweather" href="#project/arsenal-cold-weather">${img('coldweather-01.jpg','Two models in black and red Arsenal Cold Weather fleece hoodies')}<div class="tile-copy"><span class="mono">(05) / <span class="coldweather-category">CAMPAIGN</span></span><h3>Arsenal Cold Weather ↗</h3><span class="mono coldweather-client">Adidas x Arsenal</span></div></a>
  <a class="work-tile tile-aspinal" href="#project/aspinal-sunglasses">${img('aspinal-01.jpg','Aspinal of London sunglasses campaign')}${img('aspinal-02.jpg','Aspinal of London sunglasses campaign detail','tile-hover-media')}<div class="tile-copy"><span class="mono">(06) / <span class="coldweather-category">ACCESSORIES</span></span><h3>Aspinal Sunglasses ↗</h3><span class="mono coldweather-client">Aspinal of London</span></div></a>
 </div></section>
-<section class="disciplines wrap" id="london-services"><div class="section-label"><span>(03) / What we do</span><span>Pick your obsession.</span></div><div class="discipline-layout"><div class="service-list">${['Photography','Retouching','CGI','Styling','Video','Art direction'].map((name,i)=>`<button class="service-row ${i===0?'active':''}" data-service="${i}" aria-expanded="${i===0}"><span class="mono">(0${i+1})</span><span>${name}</span><span class="service-plus">↗</span></button>`).join('')}</div><aside class="service-preview"><div id="service-image">${img('tiro-02.jpg','Arsenal Tiro portrait')}</div><span class="mono" id="service-label">01 / PHOTOGRAPHY</span><p id="service-description">People, product, personality. Images with something to say.</p><a class="underlined" href="${mail('Creative production enquiry')}">Let’s talk production ↗</a></aside></div></section>
-<section class="craft-section wrap"><div class="section-label"><span>(04) / Between the frames</span><span>The details do the talking.</span></div><div class="craft-grid"><div class="craft-image">${img('oner-05.jpg','Oner Active artwork showing layered photographs, notes and material')}<span class="mono">ONER ACTIVE / A CLOSER LOOK</span></div><div class="craft-copy"><h2>SMALL<br>DECISIONS.<br><span>BIG FEELING.</span></h2><p>A fold in the fabric. The edge of a shadow. Paper you can almost feel. The difference lives in the details.</p><a class="underlined" href="#project/oner-active">Inside the Oner Active series ↗</a></div></div></section>
-<section class="process wrap"><div class="section-label"><span>(05) / The way through</span><span>Good instinct. Proper process.</span></div>${[['Brief','Find the thing worth saying.','We get close to the idea, the audience and the image you want to put into the world.','matchday-07.jpg'],['Build','Give the idea a world.','Direction, references, styling and production come together before the camera rolls.','oner-06.jpg'],['Shoot','Leave room for the unexpected.','A clear direction. A collaborative set. And the freedom to spot something better in the moment.','tiro-03.jpg'],['Finish','Every last pixel.','The edit, the grade, the retouch. The final details carry the original idea all the way through.','oner-02.jpg']].map(([title,line,copy,file],i)=>`<details class="process-row" ${i===0?'open':''}><summary><span class="process-number">0${i+1}</span><h3>${title}</h3><span class="process-line">${line}</span><span class="expand">+</span></summary><div class="process-content"><p>${copy}</p>${img(file,'Selected campaign detail illustrating '+title.toLowerCase())}</div></details>`).join('')}</section>
-<section class="studio-counts wrap"><div><strong>06</strong><span class="mono">CREATIVE DISCIPLINES</span></div><div><strong>02</strong><span class="mono">CITIES. SHARED AMBITION.</span></div><div><strong>77</strong><span class="mono">ONE COLLECTIVE POINT OF VIEW</span></div></section>
-<section class="collective wrap"><div class="section-label"><span>(06) / Our kind of people</span><span>Good chemistry makes good work.</span></div><h2>INDIVIDUAL<br>INSTINCTS.<br><span class="red">COLLECTIVE ENERGY.</span></h2><div class="collective-bottom"><p>Ideas get better when different eyes are on them. We bring image makers, visual thinkers and production minds together around the brief.</p><a class="underlined" href="${mail('Creative collaboration / roster')}">Got a point of view? Get in touch ↗</a></div></section>
+<section class="disciplines wrap" id="london-services"><div class="section-label"><span>(03) / What we do</span><span>Six disciplines. One team.</span></div><div class="discipline-layout"><div class="service-list">${['Photography','Retouching','CGI','Styling','Video','Art direction'].map((name,i)=>`<button class="service-row ${i===0?'active':''}" data-service="${i}" aria-expanded="${i===0}"><span class="mono">(0${i+1})</span><span>${name}</span><span class="service-plus">↗</span></button>`).join('')}</div><aside class="service-preview"><div id="service-image">${img('tiro-02.jpg','Arsenal Tiro portrait')}</div><span class="mono" id="service-label">01 / PHOTOGRAPHY</span><p id="service-description">Photography for people, products and brands.</p><a class="underlined" href="${mail('Creative production enquiry')}">Let’s talk production ↗</a></aside></div></section>
+<section class="craft-section wrap"><div class="section-label"><span>(04) / Between the frames</span><span>A closer look.</span></div><div class="craft-grid"><div class="craft-image">${img('oner-05.jpg','Oner Active artwork showing layered photographs, notes and material')}<span class="mono">ONER ACTIVE / A CLOSER LOOK</span></div><div class="craft-copy"><h2>EVERY<br><span>DETAIL.</span></h2><p>Fabric, light, texture. Small decisions shape the image.</p><a class="underlined" href="#project/oner-active">View Oner Active ↗</a></div></div></section>
+<section class="process wrap"><div class="section-label"><span>(05) / Process</span><span>From brief to delivery.</span></div><h2 class="process-heading">FROM BRIEF<br>TO FINAL<span class="red">.</span></h2>${[['Brief','Set the direction.','We define the idea, the audience and what the work needs to do.','matchday-07.jpg'],['Build','Plan the production.','Direction, styling and production, agreed before the shoot.','oner-06.jpg'],['Shoot','Make the work.','A clear plan, a collaborative set and room to experiment.','tiro-03.jpg'],['Finish','Finish with care.','Editing, grading and retouching, true to the original idea.','oner-02.jpg']].map(([title,line,copy,file],i)=>`<details class="process-row" ${i===0?'open':''}><summary><span class="process-number">0${i+1}</span><h3>${title}</h3><span class="process-line">${line}</span><span class="expand">+</span></summary><div class="process-content"><p>${copy}</p>${img(file,'Selected campaign detail illustrating '+title.toLowerCase())}</div></details>`).join('')}</section>
+<section class="studio-counts wrap"><div><strong>06</strong><span class="mono">CREATIVE DISCIPLINES</span></div><div><strong>02</strong><span class="mono">STUDIO LOCATIONS</span></div><div><strong>77</strong><span class="mono">ONE COLLECTIVE</span></div></section>
+<section class="collective wrap"><div class="section-label"><span>(06) / The team</span><span>Different skills. Shared standards.</span></div><h2>MANY MINDS.<br><span class="red">ONE TEAM.</span></h2><div class="collective-bottom"><p>Image makers, art directors and producers working together from the start.</p><a class="underlined" href="${mail('Creative collaboration / roster')}">Work with us ↗</a></div></section>
 ${contact('london')}`;}
 
 function manchester(){return `
-<section class="manchester-hero wrap" aria-labelledby="manchester-title"><div class="section-label"><span>Seventy7 / Manchester</span><span>Marketing & Communications</span></div><h1 id="manchester-title">Clarity.<br>Character.<br><em>Connection.</em></h1><div class="manchester-intro"><p>Good communication starts with understanding.<br>We help brands find what to say — and how to say it.</p><a class="underlined" href="#manchester/services">What we do <span aria-hidden="true">↓</span></a></div></section>
-<section class="manchester-services wrap" id="manchester-services"><div class="section-title"><h2>Make yourself<br>understood<span class="orange">.</span></h2><span class="eyebrow">Our focus</span></div><article class="marketing-service"><span class="mono">01</span><h3>Copywriting</h3><div><p>Words with a purpose. A voice with personality. Copy that makes your message clear and gives people a reason to keep reading.</p><a class="underlined" href="${mail('Copywriting enquiry')}">Talk copy ${arrow}</a></div></article><article class="marketing-service"><span class="mono">02</span><h3>B2B</h3><div><p>Bring clarity to complex ideas. Speak to the people behind the business, with communication that respects what they need to know.</p><a class="underlined" href="${mail('B2B enquiry')}">Talk B2B ${arrow}</a></div></article><article class="marketing-service"><span class="mono">03</span><h3>Marketing</h3><div><p>Connect your message to your audience. Give campaigns a clear direction, a consistent voice and a reason to matter.</p><a class="underlined" href="${mail('Marketing enquiry')}">Talk marketing ${arrow}</a></div></article></section>
-<section class="connected-studios wrap"><span class="eyebrow">Part of the same picture</span><div><h2>Words meet<br><em>image.</em></h2><p>Our Manchester focus on communication sits alongside London’s photography, film and art direction. Two perspectives, brought together under Seventy7.</p><a class="underlined" href="#london">Explore the Creative Studio ${arrow}</a></div></section>${contact('manchester')}`;}
+<section class="manchester-hero wrap" aria-labelledby="manchester-title"><div class="section-label"><span>Seventy7 / Manchester</span><span>Marketing & Communications</span></div><h1 id="manchester-title">Clarity.<br>Character.<br><em>Connection.</em></h1><div class="manchester-intro"><p>We help brands find what to say — and how to say it.</p><a class="underlined" href="#manchester/services">What we do <span aria-hidden="true">↓</span></a></div></section>
+<section class="manchester-services wrap" id="manchester-services"><div class="section-title"><h2>Make yourself<br>understood<span class="orange">.</span></h2><span class="eyebrow">Our focus</span></div><article class="marketing-service"><span class="mono">01</span><h3>Copywriting</h3><div><p>Clear messages. A consistent voice. Copy worth reading.</p><a class="underlined" href="${mail('Copywriting enquiry')}">Talk copy ${arrow}</a></div></article><article class="marketing-service"><span class="mono">02</span><h3>B2B</h3><div><p>Make complex ideas clear for the people making decisions.</p><a class="underlined" href="${mail('B2B enquiry')}">Talk B2B ${arrow}</a></div></article><article class="marketing-service"><span class="mono">03</span><h3>Marketing</h3><div><p>Campaigns with a clear direction and a consistent voice.</p><a class="underlined" href="${mail('Marketing enquiry')}">Talk marketing ${arrow}</a></div></article></section>
+<section class="connected-studios wrap"><span class="eyebrow">Part of the same picture</span><div><h2>Words meet<br><em>image.</em></h2><p>Manchester brings copywriting, B2B and marketing. London brings photography, film and art direction. One Seventy7 team.</p><a class="underlined" href="#london">Explore the Creative Studio ${arrow}</a></div></section>${contact('manchester')}`;}
 
 const notes=[
   {id:'colour',label:'Arsenal Tiro',title:'Let the colour<br>hold the frame.',text:'The red backdrop and near-black kit create a simple, decisive contrast. Skin, fabric and expression become the detail.',file:'tiro-01.jpg',alt:'Arsenal Tiro: red backdrop and black garments',slug:'arsenal-tiro'},
@@ -278,6 +381,7 @@ function project(p){
 }
 function renderFooter(city){footer.innerHTML=city?`<div class="footer-top wrap"><a href="#">Choose a studio</a><span>London & Manchester</span><span>© ${new Date().getFullYear()} Seventy7</span></div>`:'';}
 function setupMotion(){
+  setupPageReveals();
   mediaObserver?.disconnect();
   mediaObserver=new IntersectionObserver(entries=>entries.forEach(({target,isIntersecting})=>{
     if(isIntersecting&&!document.documentElement.classList.contains('gate-pending')&&!reducedMotion.matches&&!document.hidden&&target.dataset.paused!=='true')target.play().catch(()=>{});else target.pause();
@@ -323,12 +427,32 @@ document.addEventListener('click',event=>{const link=event.target.closest('a[hre
 window.addEventListener('hashchange',route);
 setTimeout(()=>{try{route();}finally{setupOpening();}},0);
 
-const serviceData=[['tiro-02.jpg','People, product, personality. Images with something to say.'],['tiro-01.jpg','The considered finish. Colour, texture and detail, held in balance.'],['oner-02.jpg','Build the image beyond the camera. New possibilities in three dimensions.'],['matchday-05.jpg','Shape, silhouette, attitude. The details that give an image its character.'],['tiro-03.jpg','Find the rhythm. From a single gesture to the whole story.'],['oner-06.jpg','One clear point of view. Every visual decision pulling in the same direction.']];
+const serviceData=[['tiro-02.jpg','Photography for people, products and brands.'],['tiro-01.jpg','The considered finish. Colour, texture and detail, held in balance.'],['oner-02.jpg','Build the image beyond the camera. New possibilities in three dimensions.'],['matchday-05.jpg','Shape, silhouette, attitude. The details that give an image its character.'],['tiro-03.jpg','Find the rhythm. From a single gesture to the whole story.'],['oner-06.jpg','One clear point of view. Every visual decision pulling in the same direction.']];
 function setupEditorial(){
  document.querySelectorAll('[data-service]').forEach(button=>{const activate=()=>{const i=+button.dataset.service;document.querySelectorAll('[data-service]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-expanded',String(b===button));});document.querySelector('#service-image').innerHTML=img(serviceData[i][0],'Selected Seventy7 portfolio image','',true);document.querySelector('#service-label').textContent='0'+(i+1)+' / '+button.children[1].textContent.toUpperCase();document.querySelector('#service-description').textContent=serviceData[i][1];};button.addEventListener('click',activate);button.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')activate();});button.addEventListener('focus',activate);});
  document.querySelector('.confetti-star')?.addEventListener('click',e=>{if(reducedMotion.matches){e.currentTarget.textContent='✦';return;}for(let i=0;i<20;i++){const x=document.createElement('i');x.className='confetti';x.style.cssText=`left:${e.clientX}px;top:${e.clientY}px;--dx:${(Math.random()-.5)*350}px;--dy:${(Math.random()-.8)*350}px;--rot:${Math.random()*720}deg;background:${i%2?'#F2A11B':'#F1ECE2'}`;document.body.append(x);setTimeout(()=>x.remove(),1100);}});
- const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');observer.unobserve(e.target);}}),{threshold:.12});document.querySelectorAll('.manifesto,.work-tile,.craft-grid,.collective').forEach(el=>observer.observe(el));
+ setupPageReveals();
 }
+
+// Post-gate reveals only: an opening statement, then its supporting elements.
+function setupPageReveals(){
+ if(document.documentElement.classList.contains('gate-pending'))return;
+ const root=view.firstElementChild;
+ if(pageRevealRoot===root&&pageRevealObserver)return;
+ pageRevealObserver?.disconnect();pageRevealRoot=root;
+ const targets=view.querySelectorAll('.manifesto h2,.manifesto-foot,.work-heading,.work-tile,.discipline-layout,.craft-image,.craft-copy,.process-heading,.process-row,.studio-counts>div,.collective h2,.collective-bottom,.contact-bottom,.manchester-intro,.marketing-service,.case-info,.case-gallery figure');
+ if(reducedMotion.matches){targets.forEach(el=>el.classList.add('in-view'));return;}
+ pageRevealObserver=new IntersectionObserver(entries=>{
+  entries.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top).forEach((entry,i)=>{
+   entry.target.style.setProperty('--reveal-delay',Math.min(i,3)*120+'ms');
+   entry.target.classList.add('in-view');
+   if(entry.target.closest('.manifesto'))entry.target.closest('.manifesto').classList.add('in-view');
+   pageRevealObserver.unobserve(entry.target);
+  });
+ },{threshold:.08,rootMargin:'0px 0px -5% 0px'});
+ targets.forEach(el=>{el.classList.add('page-reveal');pageRevealObserver.observe(el);});
+}
+
 function tick(){document.querySelectorAll('.live-time').forEach(el=>el.textContent=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit'}).format(new Date()));}tick();setInterval(tick,30000);
 
 const menu=document.querySelector('.full-menu');document.querySelector('.menu-button').addEventListener('click',()=>menu.showModal());document.querySelector('.menu-close').addEventListener('click',()=>menu.close());menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.close()));
