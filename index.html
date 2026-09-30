@@ -4,6 +4,8 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#410f16">
 <meta name="description" content="Seventy7. London creative production and Manchester marketing. Photography, film, retouching, CGI, styling and art direction.">
+<link rel="preload" as="image" href="assets/matchday-01.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/seventy7-77mark.png">
 <title>Seventy7 — London / Manchester</title>
 <style>
 :root{--red:#f13518;--blood:#410f16;--ink:#151413;--paper:#eeeae2;--muted:#aaa39b;--line:rgba(255,255,255,.19);--pad:clamp(22px,4vw,72px);--space:clamp(100px,12vw,190px);--display:Impact,"Arial Narrow","Helvetica Neue",sans-serif}
@@ -48,13 +50,32 @@
 @media(max-width:1000px){.project,.project:last-child{grid-column:span 6}.project.landscape{grid-column:span 8}.project:nth-child(2){grid-column:span 4}.project:nth-child(3),.project:nth-child(4),.project:nth-child(5){grid-column:span 6}.project:nth-child(2) .project-cover{aspect-ratio:8/9}}
 @media(max-width:760px){.project-grid{gap:32px 14px}.project,.project:last-child,.project:nth-child(2),.project:nth-child(3),.project:nth-child(4),.project:nth-child(5){grid-column:span 6}.project.landscape{grid-column:span 12}.project:last-child{grid-column:4/span 6}.project:nth-child(2) .project-cover{aspect-ratio:4/5}.caption h3{font-size:17px}.caption>span{font-size:10px}.index{top:12px;left:12px}.pill{left:10px;bottom:10px;font-size:9px;padding:4px 8px}.manchester-hero{grid-template-columns:1fr;padding-top:64px}.manchester-heading h1{font-size:clamp(58px,12vw,92px)}.manchester-placeholder{max-width:420px}.placeholder-art span{font-size:90px}.team-placeholder{flex-wrap:wrap}}
 
+
+/* Unaltered campaign colour; hover changes scale only. */
+.project-cover{background:var(--ink)}
+.project-cover>img,.project-cover>video,.project-cover:hover>img,.project-cover:hover>video,.project-cover:focus-visible>img,.project-cover:focus-visible>video{filter:none;mix-blend-mode:normal}
+.project-cover:after{background:linear-gradient(transparent 80%,#00000030);mix-blend-mode:normal}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+.hero:after{background:linear-gradient(transparent 70%,rgba(0,0,0,.38))}
+.hero-copy>.mono{margin:0}.hero-meta{align-items:end}
+/* Native :target routing works even when all JavaScript is unavailable. */
+.case-page{display:none;background:var(--paper);color:var(--ink)}
+.case-page:target{display:block}
+body:has(.case-page:target) .london-page,body:has(.case-page:target) .manchester-page{display:none}
+.case-page-body{padding:60px var(--pad) var(--space)}
+.case-page-top{display:flex;justify-content:space-between;gap:24px;align-items:center;margin-bottom:64px;font-size:12px}
+.case-page-body>h1{font-size:clamp(60px,9vw,144px);max-width:1100px;margin-bottom:48px}
+.case-page .case-intro{margin-bottom:48px}.case-page .case-intro .mono{color:#655f58}
+.case-page .gallery figcaption{color:#655f58}.case-page .case-content{padding:0}
+@media(max-width:760px){.case-page-body{padding-top:36px}.case-page-top{margin-bottom:48px}.case-page-body>h1{font-size:clamp(48px,12vw,84px)}.case-page .gallery{grid-template-columns:1fr}}
+
 </style>
-<noscript><style>.case-study:not([open]){display:block}</style></noscript>
+
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <main id="main" tabindex="-1"><div class="studio-page london-page"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header>
-<section class="hero" id="london" aria-labelledby="hero-title"><img src="assets/coldweather-01.jpg" width="2400" height="1601" alt="Two models in black and red Arsenal fleece against a dark studio background" fetchpriority="high"><div class="hero-meta"><div class="hero-copy"><p class="mono">Seventy7 / London / Creative production</p><h1 id="hero-title">London.<br>Creative production.</h1></div><p>Photography, film and art direction.<br>From first idea to final image.</p></div></section>
+<section class="hero" id="london" aria-labelledby="hero-title"><img src="assets/coldweather-01.jpg" width="2400" height="1601" alt="Two models in black and red Arsenal fleece against a dark studio background" fetchpriority="high"><div class="hero-meta"><div class="hero-copy"><p class="mono">Seventy7 / London / Creative production</p><h1 id="hero-title" class="visually-hidden">Seventy7 London creative production</h1></div><p>Photography, film and art direction.<br>From first idea to final image.</p></div></section>
 <section class="section manifesto" aria-labelledby="manifesto-title"><div class="section-top"><span class="mono">(01) / A point of view</span><span class="mono">Seventy7 / Image makers</span></div>
 <!-- Headline option 1 — live default. -->
 <h2 id="manifesto-title">Photography.<br>Film. <img class="image-pill" src="assets/tiro-02.jpg" alt="" loading="lazy"><br>Art direction<em>*</em></h2>
@@ -78,29 +99,7 @@
 <div class="caption"><h3><a href="#arsenal-cold-weather">Arsenal Cold Weather</a></h3><span>Adidas x Arsenal</span></div></article>
 <article class="project " id="card-aspinal-sunglasses">
 <a class="project-cover" href="#aspinal-sunglasses" aria-label="Explore Aspinal Sunglasses"><img src="assets/aspinal-01.jpg" alt="Aspinal Sunglasses campaign" loading="lazy" width="1600" height="2000"><span class="index">(06)</span><span class="pill">Photography</span></a>
-<div class="caption"><h3><a href="#aspinal-sunglasses">Aspinal Sunglasses</a></h3><span>Aspinal of London</span></div></article></div><div class="case-list" aria-label="Project galleries"><details class="case-study" id="arsenal-tiro"><summary><span class="mono">(02)</span><span>Arsenal Tiro</span><span class="case-toggle" aria-hidden="true">+</span></summary><div class="case-content"><div class="case-intro"><p>Portraits and movement, set against deep red.</p><span class="mono">Arsenal / Photography</span></div><img class="detail-cover" src="assets/tiro-01.jpg" alt="Arsenal Tiro — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/tiro-02.jpg" alt="Arsenal Tiro — campaign photograph 1" loading="lazy"><figcaption class="mono">Arsenal Tiro / 01</figcaption></figure>
-<figure><img src="assets/tiro-03.jpg" alt="Arsenal Tiro — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Tiro / 02</figcaption></figure>
-<figure><img src="assets/tiro-04.jpg" alt="Arsenal Tiro — campaign photograph 3" loading="lazy"><figcaption class="mono">Arsenal Tiro / 03</figcaption></figure></div><a class="text-link" href="#card-arsenal-tiro">Back to selected work ↑</a></div></details>
-<details class="case-study" id="arsenal-matchday"><summary><span class="mono">(01)</span><span>Matchday</span><span class="case-toggle" aria-hidden="true">+</span></summary><div class="case-content"><div class="case-intro"><p>Matchday style, from the memorabilia shop to the stadium steps.</p><span class="mono">Arsenal / Campaign</span></div><img class="detail-cover" src="assets/matchday-03.jpg" alt="Matchday — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/matchday-03.jpg" alt="Matchday — campaign photograph 1" loading="lazy"><figcaption class="mono">Matchday / 01</figcaption></figure>
-<figure><img src="assets/matchday-02.jpg" alt="Matchday — campaign photograph 2" loading="lazy"><figcaption class="mono">Matchday / 02</figcaption></figure>
-<figure><img src="assets/matchday-07.jpg" alt="Matchday — campaign photograph 3" loading="lazy"><figcaption class="mono">Matchday / 03</figcaption></figure>
-<figure><img src="assets/matchday-04.jpg" alt="Matchday — campaign photograph 4" loading="lazy"><figcaption class="mono">Matchday / 04</figcaption></figure>
-<figure><img src="assets/matchday-05.jpg" alt="Matchday — campaign photograph 5" loading="lazy"><figcaption class="mono">Matchday / 05</figcaption></figure>
-<figure><img src="assets/matchday-06.jpg" alt="Matchday — campaign photograph 6" loading="lazy"><figcaption class="mono">Matchday / 06</figcaption></figure></div><a class="text-link" href="#card-arsenal-matchday">Back to selected work ↑</a></div></details>
-<details class="case-study" id="arsenal-summer"><summary><span class="mono">(03)</span><span>Arsenal Summer</span><span class="case-toggle" aria-hidden="true">+</span></summary><div class="case-content"><div class="case-intro"><p>Arsenal. In motion.</p><span class="mono">Arsenal / Film</span></div><video controls loop muted playsinline preload="none" poster="assets/summer-01.jpg"><source src="assets/arsenal-summer.mp4" type="video/mp4"></video><div class="gallery"><figure><img src="assets/summer-01.jpg" alt="Arsenal Summer — campaign photograph 1" loading="lazy"><figcaption class="mono">Arsenal Summer / 01</figcaption></figure>
-<figure><img src="assets/summer-02.jpg" alt="Arsenal Summer — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Summer / 02</figcaption></figure></div><a class="text-link" href="#card-arsenal-summer">Back to selected work ↑</a></div></details>
-<details class="case-study" id="oner-active"><summary><span class="mono">(04)</span><span>Oner Active</span><span class="case-toggle" aria-hidden="true">+</span></summary><div class="case-content"><div class="case-intro"><p>SoftMotion / Icon. Product, paper and texture.</p><span class="mono">Oner Active / Still life</span></div><img class="detail-cover" src="assets/oner-08.jpg" alt="Oner Active — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/oner-09.jpg" alt="Oner Active — campaign photograph 1" loading="lazy"><figcaption class="mono">Oner Active / 01</figcaption></figure>
-<figure><img src="assets/oner-01.jpg" alt="Oner Active — campaign photograph 2" loading="lazy"><figcaption class="mono">Oner Active / 02</figcaption></figure>
-<figure><img src="assets/oner-02.jpg" alt="Oner Active — campaign photograph 3" loading="lazy"><figcaption class="mono">Oner Active / 03</figcaption></figure>
-<figure><img src="assets/oner-03.jpg" alt="Oner Active — campaign photograph 4" loading="lazy"><figcaption class="mono">Oner Active / 04</figcaption></figure>
-<figure><img src="assets/oner-04.jpg" alt="Oner Active — campaign photograph 5" loading="lazy"><figcaption class="mono">Oner Active / 05</figcaption></figure>
-<figure><img src="assets/oner-05.jpg" alt="Oner Active — campaign photograph 6" loading="lazy"><figcaption class="mono">Oner Active / 06</figcaption></figure>
-<figure><img src="assets/oner-06.jpg" alt="Oner Active — campaign photograph 7" loading="lazy"><figcaption class="mono">Oner Active / 07</figcaption></figure>
-<figure><img src="assets/oner-07.jpg" alt="Oner Active — campaign photograph 8" loading="lazy"><figcaption class="mono">Oner Active / 08</figcaption></figure></div><a class="text-link" href="#card-oner-active">Back to selected work ↑</a></div></details>
-<details class="case-study" id="arsenal-cold-weather"><summary><span class="mono">(05)</span><span>Arsenal Cold Weather</span><span class="case-toggle" aria-hidden="true">+</span></summary><div class="case-content"><div class="case-intro"><p>Black and red fleece. Soft haze. Texture in focus.</p><span class="mono">Adidas x Arsenal / Photography</span></div><img class="detail-cover" src="assets/coldweather-01.jpg" alt="Arsenal Cold Weather — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/coldweather-02.jpg" alt="Arsenal Cold Weather — campaign photograph 1" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 01</figcaption></figure>
-<figure><img src="assets/coldweather-03.jpg" alt="Arsenal Cold Weather — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 02</figcaption></figure>
-<figure><img src="assets/coldweather-04.jpg" alt="Arsenal Cold Weather — campaign photograph 3" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 03</figcaption></figure></div><a class="text-link" href="#card-arsenal-cold-weather">Back to selected work ↑</a></div></details>
-<details class="case-study" id="aspinal-sunglasses"><summary><span class="mono">(06)</span><span>Aspinal Sunglasses</span><span class="case-toggle" aria-hidden="true">+</span></summary><div class="case-content"><div class="case-intro"><p>A closer look at Aspinal of London.</p><span class="mono">Aspinal of London / Photography</span></div><img class="detail-cover" src="assets/aspinal-01.jpg" alt="Aspinal Sunglasses — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/aspinal-02.jpg" alt="Aspinal Sunglasses — campaign photograph 1" loading="lazy"><figcaption class="mono">Aspinal Sunglasses / 01</figcaption></figure></div><a class="text-link" href="#card-aspinal-sunglasses">Back to selected work ↑</a></div></details></div></section>
+<div class="caption"><h3><a href="#aspinal-sunglasses">Aspinal Sunglasses</a></h3><span>Aspinal of London</span></div></article></div></section>
 <section class="section services" id="services" aria-labelledby="services-title"><div class="section-top"><span class="mono">(03) / London disciplines</span></div><div class="services-intro"><h2 id="services-title">Disciplines.</h2><p class="support">Six disciplines. A shared eye for the work.</p></div>
 <div class="service-row"><span class="mono">01</span><h3>Photography</h3><p>People, products and places. A clear point of view.</p></div>
 <div class="service-row"><span class="mono">02</span><h3>Retouching</h3><p>Colour, texture and detail, finished with care.</p></div>
@@ -123,12 +122,36 @@
 <section class="section services" id="manchester-team"><div class="section-top"><span class="mono">(03) / Manchester team</span><span class="mono">Placeholder / Team details pending</span></div><div class="services-intro"><h2>The people<br>behind it.</h2><p class="support">This space is reserved for the Manchester team. Names, roles and portraits are still to be supplied.</p></div><div class="team-placeholder"><span class="mono">Copywriting</span><span class="mono">B2B</span><span class="mono">Marketing</span></div></section>
 <section class="contact" id="manchester-contact"><p class="mono">(04) / Contact Manchester</p><a class="email" href="mailto:hello@seventy7group.com?subject=Manchester%20enquiry">hello@seventy7group.com ↗</a><div class="contact-bottom"><div><p>Manchester enquiries / Shared Seventy7 inbox</p><p class="pending-contact">Manchester address and direct telephone: to be confirmed.</p></div><a class="text-link" href="#manchester">Back to top ↑</a></div></section>
 </div>
+
+<div class="case-page" id="arsenal-tiro" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-arsenal-tiro">← Selected work</a><span class="mono">(02) / London</span></div><h1>Arsenal Tiro</h1><div class="case-content"><div class="case-intro"><p>Portraits and movement, set against deep red.</p><span class="mono">Arsenal / Photography</span></div><img class="detail-cover" src="assets/tiro-01.jpg" alt="Arsenal Tiro — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/tiro-02.jpg" alt="Arsenal Tiro — campaign photograph 1" loading="lazy"><figcaption class="mono">Arsenal Tiro / 01</figcaption></figure>
+<figure><img src="assets/tiro-03.jpg" alt="Arsenal Tiro — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Tiro / 02</figcaption></figure>
+<figure><img src="assets/tiro-04.jpg" alt="Arsenal Tiro — campaign photograph 3" loading="lazy"><figcaption class="mono">Arsenal Tiro / 03</figcaption></figure></div><a class="text-link" href="#card-arsenal-tiro">Back to selected work ↑</a></div></article></div>
+<div class="case-page" id="arsenal-matchday" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-arsenal-matchday">← Selected work</a><span class="mono">(01) / London</span></div><h1>Matchday</h1><div class="case-content"><div class="case-intro"><p>Matchday style, from the memorabilia shop to the stadium steps.</p><span class="mono">Arsenal / Campaign</span></div><img class="detail-cover" src="assets/matchday-03.jpg" alt="Matchday — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/matchday-03.jpg" alt="Matchday — campaign photograph 1" loading="lazy"><figcaption class="mono">Matchday / 01</figcaption></figure>
+<figure><img src="assets/matchday-02.jpg" alt="Matchday — campaign photograph 2" loading="lazy"><figcaption class="mono">Matchday / 02</figcaption></figure>
+<figure><img src="assets/matchday-07.jpg" alt="Matchday — campaign photograph 3" loading="lazy"><figcaption class="mono">Matchday / 03</figcaption></figure>
+<figure><img src="assets/matchday-04.jpg" alt="Matchday — campaign photograph 4" loading="lazy"><figcaption class="mono">Matchday / 04</figcaption></figure>
+<figure><img src="assets/matchday-05.jpg" alt="Matchday — campaign photograph 5" loading="lazy"><figcaption class="mono">Matchday / 05</figcaption></figure>
+<figure><img src="assets/matchday-06.jpg" alt="Matchday — campaign photograph 6" loading="lazy"><figcaption class="mono">Matchday / 06</figcaption></figure></div><a class="text-link" href="#card-arsenal-matchday">Back to selected work ↑</a></div></article></div>
+<div class="case-page" id="arsenal-summer" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-arsenal-summer">← Selected work</a><span class="mono">(03) / London</span></div><h1>Arsenal Summer</h1><div class="case-content"><div class="case-intro"><p>Arsenal. In motion.</p><span class="mono">Arsenal / Film</span></div><video controls loop muted playsinline preload="none" poster="assets/summer-01.jpg"><source src="assets/arsenal-summer.mp4" type="video/mp4"></video><div class="gallery"><figure><img src="assets/summer-01.jpg" alt="Arsenal Summer — campaign photograph 1" loading="lazy"><figcaption class="mono">Arsenal Summer / 01</figcaption></figure>
+<figure><img src="assets/summer-02.jpg" alt="Arsenal Summer — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Summer / 02</figcaption></figure></div><a class="text-link" href="#card-arsenal-summer">Back to selected work ↑</a></div></article></div>
+<div class="case-page" id="oner-active" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-oner-active">← Selected work</a><span class="mono">(04) / London</span></div><h1>Oner Active</h1><div class="case-content"><div class="case-intro"><p>SoftMotion / Icon. Product, paper and texture.</p><span class="mono">Oner Active / Still life</span></div><img class="detail-cover" src="assets/oner-08.jpg" alt="Oner Active — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/oner-09.jpg" alt="Oner Active — campaign photograph 1" loading="lazy"><figcaption class="mono">Oner Active / 01</figcaption></figure>
+<figure><img src="assets/oner-01.jpg" alt="Oner Active — campaign photograph 2" loading="lazy"><figcaption class="mono">Oner Active / 02</figcaption></figure>
+<figure><img src="assets/oner-02.jpg" alt="Oner Active — campaign photograph 3" loading="lazy"><figcaption class="mono">Oner Active / 03</figcaption></figure>
+<figure><img src="assets/oner-03.jpg" alt="Oner Active — campaign photograph 4" loading="lazy"><figcaption class="mono">Oner Active / 04</figcaption></figure>
+<figure><img src="assets/oner-04.jpg" alt="Oner Active — campaign photograph 5" loading="lazy"><figcaption class="mono">Oner Active / 05</figcaption></figure>
+<figure><img src="assets/oner-05.jpg" alt="Oner Active — campaign photograph 6" loading="lazy"><figcaption class="mono">Oner Active / 06</figcaption></figure>
+<figure><img src="assets/oner-06.jpg" alt="Oner Active — campaign photograph 7" loading="lazy"><figcaption class="mono">Oner Active / 07</figcaption></figure>
+<figure><img src="assets/oner-07.jpg" alt="Oner Active — campaign photograph 8" loading="lazy"><figcaption class="mono">Oner Active / 08</figcaption></figure></div><a class="text-link" href="#card-oner-active">Back to selected work ↑</a></div></article></div>
+<div class="case-page" id="arsenal-cold-weather" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-arsenal-cold-weather">← Selected work</a><span class="mono">(05) / London</span></div><h1>Arsenal Cold Weather</h1><div class="case-content"><div class="case-intro"><p>Black and red fleece. Soft haze. Texture in focus.</p><span class="mono">Adidas x Arsenal / Photography</span></div><img class="detail-cover" src="assets/coldweather-01.jpg" alt="Arsenal Cold Weather — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/coldweather-02.jpg" alt="Arsenal Cold Weather — campaign photograph 1" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 01</figcaption></figure>
+<figure><img src="assets/coldweather-03.jpg" alt="Arsenal Cold Weather — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 02</figcaption></figure>
+<figure><img src="assets/coldweather-04.jpg" alt="Arsenal Cold Weather — campaign photograph 3" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 03</figcaption></figure></div><a class="text-link" href="#card-arsenal-cold-weather">Back to selected work ↑</a></div></article></div>
+<div class="case-page" id="aspinal-sunglasses" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-aspinal-sunglasses">← Selected work</a><span class="mono">(06) / London</span></div><h1>Aspinal Sunglasses</h1><div class="case-content"><div class="case-intro"><p>A closer look at Aspinal of London.</p><span class="mono">Aspinal of London / Photography</span></div><img class="detail-cover" src="assets/aspinal-01.jpg" alt="Aspinal Sunglasses — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/aspinal-02.jpg" alt="Aspinal Sunglasses — campaign photograph 1" loading="lazy"><figcaption class="mono">Aspinal Sunglasses / 01</figcaption></figure></div><a class="text-link" href="#card-aspinal-sunglasses">Back to selected work ↑</a></div></article></div>
 </main>
 <footer class="site-footer"><span>© Seventy7</span><nav aria-label="Studios"><a href="#london">London</a> / <a href="#manchester">Manchester</a></nav><a href="mailto:hello@seventy7group.com">Get in touch ↗</a></footer>
 <!-- Hidden in the actual HTML. With JavaScript disabled or a parse error, the gate never covers the page. -->
 <div class="gate" id="intro-gate" hidden role="dialog" aria-modal="true" aria-label="Choose a Seventy7 studio">
 <div class="gate-split"><div class="gate-panel"><img src="assets/coldweather-01.jpg" alt="Arsenal Cold Weather studio campaign"><button class="gate-select" data-location="london"><span class="mono">Creative production / Enter studio</span><strong>London ↗</strong><span class="gate-time">Europe / London</span></button><a class="gate-map" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Piper%20Building%2C%20Peterborough%20Road%2C%20London%20SW6%203EF" target="_blank" rel="noopener">The Piper Building, Peterborough Road<br>London SW6 3EF ↗</a></div><div class="gate-panel"><img src="assets/matchday-02.jpg" alt="Arsenal Matchday campaign"><button class="gate-select" data-location="manchester"><span class="mono">Marketing & communications / Enter studio</span><strong>Manchester ↗</strong><span class="gate-time">Europe / London</span></button><span class="gate-directions mono">Copywriting / B2B / Marketing</span></div></div>
-<div class="gate-loading"><span>Seventy7</span><span class="mono">Loading studio reel</span></div><div class="gate-reel"></div><div class="gate-white" hidden></div><div class="gate-doors" hidden><div class="gate-door left"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div><div class="gate-door right"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div></div><button class="gate-skip" type="button">Skip intro ↗</button>
+<div class="gate-reel"><img class="gate-poster" src="assets/matchday-01.jpg" alt="" fetchpriority="high"></div><div class="gate-white" hidden></div><div class="gate-doors" hidden><div class="gate-door left"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div><div class="gate-door right"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div></div><button class="gate-skip" type="button">Skip intro ↗</button>
 </div>
 <script>
 /* All content is static HTML. Intro and motion are optional enhancements.
@@ -177,7 +200,6 @@
     // Change route beneath the opaque gate before the exit begins.
     location.hash = studio;
     try {
-      q('.gate-loading').hidden = true;
       q('.gate-reel').hidden = true;
       q('.gate-white').hidden = true;
       q('.gate-doors').hidden = true;
@@ -187,7 +209,7 @@
   function split() {
     if (!active || exiting) return;
     sequenceStopped = true;
-    ['.gate-loading','.gate-reel','.gate-white','.gate-doors','.gate-skip'].forEach(selector => q(selector).hidden = true);
+    ['.gate-reel','.gate-white','.gate-doors','.gate-skip'].forEach(selector => q(selector).hidden = true);
     media.forEach(r => { if (r.video) r.el.pause(); });
     clearTimeout(watchdog);
     all('.gate-select')[0].focus({preventScroll:true});
@@ -242,17 +264,27 @@
       imageRecord('coldweather-02.jpg'),imageRecord('aspinal-02.jpg'),imageRecord('matchday-07.jpg')
     ];
     const mark = imageRecord('seventy7-77mark.png');
-    await Promise.race([Promise.all(media.map(r => r.ready)),sleep(2000)]);
+    // Begin on the first decoded photo, never wait for the full reel or clips.
+    // Remaining assets continue preloading in parallel; two seconds is the hard ceiling.
+    await Promise.race([
+      new Promise(resolve => beats.filter(r => !r.video).forEach(r => r.ready.then(() => { if(r.loaded) resolve(); }))),
+      sleep(2000)
+    ]);
     if (!active || exiting || sequenceStopped) return;
     if (motion.matches) { split(); return; }
-    const available = beats.filter(r => r.loaded);
-    available.forEach(r => q('.gate-reel').append(r.el));
-    q('.gate-loading').hidden = true;
-    for (let i=0;i<available.length;i++) {
+    let last = beats.find(r => r.loaded && !r.video);
+    if (!last) { split(); return; }
+    beats.forEach(r => q('.gate-reel').append(r.el));
+    const poster=q('.gate-poster');
+    if(poster) poster.hidden=true;
+    for (let i=0;i<beats.length;i++) {
       if (!active || exiting || sequenceStopped) return;
-      const record = available[i]; record.el.hidden = false;
+      // Late or failed media reuse a loaded photo; no broken or blank frame.
+      const record = beats[i].loaded ? beats[i] : last;
+      record.el.hidden = false;
+      if(!record.video) last=record;
       if (record.video) { try { const p=record.el.play(); if(p) p.catch(() => {}); } catch (_) {} }
-      await sleep(140-Math.round(40*i/Math.max(1,available.length-1)));
+      await sleep(140-Math.round(40*i/Math.max(1,beats.length-1)));
       if (!active || exiting || sequenceStopped) return;
       q('.gate-white').hidden = false;
       await sleep(25);
@@ -297,26 +329,22 @@
     motion.addEventListener?.('change',event=>{if(event.matches&&active&&!exiting){animations.forEach(a=>a.cancel());split();}});
   } catch (_) { removeGate(); }
 })();
-/* Navigation and portfolio enhancement are independent of the intro. */
+/* Case-study routes are native CSS :target pages, not accordions. */
 (() => {
   function route() {
     const target=document.getElementById(location.hash.slice(1));
-    if(target&&target.tagName==='DETAILS') target.open=true;
-    document.title=(location.hash.startsWith('#manchester')?'Manchester — Marketing & communications':'London — Creative production')+' / Seventy7';
+    const isCase=target&&target.classList.contains('case-page');
+    document.title=(isCase ? target.querySelector('h1').textContent : location.hash.startsWith('#manchester')?'Manchester — Marketing & communications':'London — Creative production')+' / Seventy7';
+    if(isCase) { window.scrollTo({top:0,behavior:'instant'});target.focus({preventScroll:true}); }
   }
   route(); window.addEventListener('hashchange',route);
-  document.querySelectorAll('.project a').forEach(link=>link.addEventListener('click',()=>{
-    const detail=document.getElementById(link.hash.slice(1));
-    if(detail) {document.querySelectorAll('.case-study[open]').forEach(other=>{if(other!==detail)other.open=false;});detail.open=true;}
-  }));
   try {
     if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window) {
       const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){observer.unobserve(entry.target);try{entry.target.animate([{transform:'translateY(16px)'},{transform:'translateY(0)'}],{duration:1000,easing:'cubic-bezier(.2,.6,.2,1)'});}catch(_){}}});},{threshold:.1});
       document.querySelectorAll('.service-row,.process-row,.studio-intro').forEach(el=>observer.observe(el));
     }
-  }catch(_){} // Underlying CSS is always opacity:1 and transform:none.
+  }catch(_){}
 })();
-
 </script>
 </body>
 </html>
