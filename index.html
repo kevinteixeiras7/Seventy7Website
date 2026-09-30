@@ -13,20 +13,55 @@
 .gate{position:fixed;inset:0;width:100%;height:100svh;z-index:500;background:#000;overflow:hidden;color:white}.gate-split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}.gate-panel{position:relative;overflow:hidden;background:var(--blood)}.gate-panel>img{width:100%;height:100%;object-fit:cover}.gate-panel:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(transparent 30%,#000b);transition:background .4s}.gate-select{position:absolute;inset:0;width:100%;height:100%;background:none;border:0;color:white;cursor:pointer;text-align:left;z-index:1;padding:var(--pad);display:flex;flex-direction:column;justify-content:end;align-items:start;gap:12px;padding-bottom:130px}.gate-select strong{font-family:var(--display);font-size:clamp(32px,5.7vw,92px);text-transform:uppercase;font-weight:900;letter-spacing:-.025em}.gate-select .mono{font-size:11px}.gate-panel:has(.gate-select:hover)>img{filter:brightness(1.1)}.gate-map{position:absolute;bottom:35px;left:var(--pad);right:var(--pad);z-index:2;font-size:10px;line-height:1.6;max-width:320px;text-decoration:underline;text-underline-offset:4px}.gate-time{font-family:"Courier New",monospace;font-size:11px}.gate-directions{position:absolute;bottom:40px;left:var(--pad);font-size:11px;z-index:2;pointer-events:none}.gate-reel{position:absolute;inset:0;z-index:3;background:#000;pointer-events:none}.gate-reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.gate-white{position:absolute;inset:0;background:#fff;z-index:4;pointer-events:none}.gate-doors{position:absolute;inset:0;display:flex;z-index:5;pointer-events:none}.gate-door{position:relative;width:50%;height:100%;overflow:hidden;background:#000}.mark-stage{position:absolute;top:0;left:0;width:100vw;height:100svh;display:grid;place-items:center}.gate-door.right .mark-stage{left:-50vw}.mark-stage img{width:min(145vw,175svh,var(--native-mark,2063px));max-width:none;height:auto;object-fit:contain;image-rendering:auto;filter:none}.gate-skip{position:absolute;right:20px;top:20px;background:#0009;color:#fff;border:1px solid #ffffff70;border-radius:30px;padding:10px 16px;z-index:8;font-size:11px;cursor:pointer}.gate-select:focus-visible{outline-offset:-8px}.gate-map:focus-visible{outline-color:white}
 @media(max-width:760px){:root{--space:100px}.site-nav{height:78px}.nav-links{gap:18px}.nav-links>a:not(.talk){display:none}.talk{font-size:11px}.hero{min-height:calc(90svh - 78px);padding-bottom:48px}.hero>img{object-position:55% center}.hero-meta{display:block}.hero-meta>p{margin-top:30px}.hero h1{font-size:clamp(65px,14vw,108px)}.section-top{margin-bottom:42px}.section-top>.mono:last-child{max-width:120px}.manifesto-bottom,.roster .support{margin:40px 0 0}.work-intro,.case-intro{display:block}.work-intro .support{margin-top:32px}.project-grid{gap:50px 18px}.project,.project:last-child{grid-column:1/-1;max-width:none}.project.landscape .project-cover{aspect-ratio:16/9}.caption h3{font-size:23px}.gallery{gap:26px 16px}.case-intro .mono{display:block;margin-top:20px}.case-study summary{font-size:17px;gap:15px}.services-intro,.studio-intro,.studio-image,.manchester-intro{grid-template-columns:1fr;gap:40px}.service-row{grid-template-columns:32px 1fr;gap:16px}.service-row p{grid-column:2}.studio-intro{margin-bottom:60px}.process-row{grid-template-columns:32px 1fr;gap:16px}.process-row p{grid-column:2}.numbers{grid-template-columns:1fr 1fr}.numbers>div:first-child{grid-column:1/-1}.number.lead{font-size:48vw}.manchester-services{grid-template-columns:1fr;gap:40px}.contact-bottom,.site-footer{flex-wrap:wrap}.gate-select{padding:18px;padding-bottom:140px}.gate-select strong{font-size:clamp(28px,6.7vw,50px)}.gate-select .mono{font-size:9px;max-width:130px}.gate-map,.gate-directions{left:18px;right:18px;bottom:30px;font-size:9px}.gate-panel:first-child>img{object-position:38% center}.gate-panel:last-child>img{object-position:60% center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.project-cover:hover>img,.project-cover:hover>video{transform:none}}
+
+/* Two actual document routes, available even with JavaScript disabled.
+   These selectors choose a page; they do not hide content for animation. */
+@supports selector(body:has(:target)) {
+  .manchester-page{display:none}
+  body:has(.manchester-page:target) .london-page,
+  body:has(.manchester-page :target) .london-page{display:none}
+  body:has(.manchester-page:target) .manchester-page,
+  body:has(.manchester-page :target) .manchester-page{display:block}
+}
+.hero h1{font-size:clamp(56px,8.3vw,132px)}
+.project-grid{grid-template-columns:repeat(12,minmax(0,1fr));gap:44px 24px;align-items:start}
+.project,.project:last-child{grid-column:span 4;width:100%;max-width:none;margin:0}
+.project.landscape{grid-column:span 8}
+.project.landscape .project-cover{aspect-ratio:16/9}
+.project:nth-child(2) .project-cover{aspect-ratio:8/9}
+.project:nth-child(3),.project:nth-child(4),.project:nth-child(5){grid-column:span 4}
+.project:last-child{grid-column:5/span 4}
+.project:last-child .project-cover{aspect-ratio:4/5}
+.project-cover{cursor:pointer;background:#6b1720}
+.project-cover>img,.project-cover>video{filter:grayscale(1) contrast(1.1);mix-blend-mode:luminosity}
+.project-cover:hover>img,.project-cover:hover>video,.project-cover:focus-visible>img,.project-cover:focus-visible>video{filter:grayscale(0);mix-blend-mode:normal;transform:scale(1.035)}
+.caption{display:block}.caption>span{display:block;text-align:left;margin-top:8px}.caption h3{font-size:clamp(18px,1.7vw,26px)}
+.case-list{margin-top:70px}.case-study:not([open]){display:none}.case-study:target{display:block}
+/* With no script, each native gallery remains available to open. */
+.manchester-page{opacity:1}
+.manchester-hero{padding:90px var(--pad) 100px;background:var(--blood);display:grid;grid-template-columns:1.2fr 1fr;gap:60px;min-height:85svh;align-items:center}
+.manchester-heading h1{font-size:clamp(58px,7.5vw,120px);margin:32px 0}.manchester-heading>p:last-child{font-size:16px;color:#d1b8bc}
+.placeholder-art{aspect-ratio:4/5;position:relative;background:var(--red);color:var(--blood);padding:28px;overflow:hidden;display:flex;align-items:end}.placeholder-art span{font-family:var(--display);font-size:clamp(52px,6.5vw,108px);line-height:.9;letter-spacing:-.04em}.placeholder-art i{position:absolute;right:22px;top:-15px;font-size:180px;font-style:normal}.manchester-placeholder figcaption{margin-top:14px;color:#d1b8bc;font-size:10px}
+.manchester-work{background:var(--ink)}.manchester-work .support{margin:44px 0 32px}.team-placeholder{display:flex;justify-content:space-between;gap:22px;border-top:1px solid #15141330;padding-top:32px}.pending-contact{font-size:12px;margin-top:16px;max-width:360px}
+.gate-reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gate-loading{position:absolute;inset:0;display:grid;place-content:center;z-index:6;background:var(--blood);gap:15px;text-align:center}.gate-loading span:first-child{font-family:var(--display);font-size:48px}.gate-loading .mono{font-size:10px}
+@media(max-width:1000px){.project,.project:last-child{grid-column:span 6}.project.landscape{grid-column:span 8}.project:nth-child(2){grid-column:span 4}.project:nth-child(3),.project:nth-child(4),.project:nth-child(5){grid-column:span 6}.project:nth-child(2) .project-cover{aspect-ratio:8/9}}
+@media(max-width:760px){.project-grid{gap:32px 14px}.project,.project:last-child,.project:nth-child(2),.project:nth-child(3),.project:nth-child(4),.project:nth-child(5){grid-column:span 6}.project.landscape{grid-column:span 12}.project:last-child{grid-column:4/span 6}.project:nth-child(2) .project-cover{aspect-ratio:4/5}.caption h3{font-size:17px}.caption>span{font-size:10px}.index{top:12px;left:12px}.pill{left:10px;bottom:10px;font-size:9px;padding:4px 8px}.manchester-hero{grid-template-columns:1fr;padding-top:64px}.manchester-heading h1{font-size:clamp(58px,12vw,92px)}.manchester-placeholder{max-width:420px}.placeholder-art span{font-size:90px}.team-placeholder{flex-wrap:wrap}}
+
 </style>
+<noscript><style>.case-study:not([open]){display:block}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header>
-<main id="main" tabindex="-1">
-<section class="hero" id="london" aria-labelledby="hero-title"><img src="assets/coldweather-01.jpg" width="2400" height="1601" alt="Two models in black and red Arsenal fleece against a dark studio background" fetchpriority="high"><div class="hero-meta"><div class="hero-copy"><p class="mono">Seventy7 / London / Creative production</p><h1 id="hero-title">Good work.<br>Great instincts.</h1></div><p>Photography, film and art direction.<br>From first idea to final image.</p></div></section>
+<main id="main" tabindex="-1"><div class="studio-page london-page"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header>
+<section class="hero" id="london" aria-labelledby="hero-title"><img src="assets/coldweather-01.jpg" width="2400" height="1601" alt="Two models in black and red Arsenal fleece against a dark studio background" fetchpriority="high"><div class="hero-meta"><div class="hero-copy"><p class="mono">Seventy7 / London / Creative production</p><h1 id="hero-title">London.<br>Creative production.</h1></div><p>Photography, film and art direction.<br>From first idea to final image.</p></div></section>
 <section class="section manifesto" aria-labelledby="manifesto-title"><div class="section-top"><span class="mono">(01) / A point of view</span><span class="mono">Seventy7 / Image makers</span></div>
 <!-- Headline option 1 — live default. -->
-<h2 id="manifesto-title">Strong ideas.<br>Sharp eyes. <img class="image-pill" src="assets/tiro-02.jpg" alt="" loading="lazy"><br>Nothing<br>by chance<em>*</em></h2>
-<!-- Option 2: A clear / point of view. / In every / frame* -->
-<!-- Option 3: Less noise. / More nerve. / Work that / holds up* -->
+<h2 id="manifesto-title">Photography.<br>Film. <img class="image-pill" src="assets/tiro-02.jpg" alt="" loading="lazy"><br>Art direction<em>*</em></h2>
+
+
 <div class="manifesto-bottom"><p>Photography, retouching, styling, film, art direction and CGI. One team, from first idea to final image.</p></div></section>
-<section class="section work" id="work" aria-labelledby="work-title"><div class="section-top"><span class="mono">(02) / Portfolio</span><span class="mono">Selected projects / 01—06</span></div><div class="work-intro"><h2 id="work-title">Selected<br>work.</h2><p class="support">Sport, fashion and the details in between.</p></div><div class="project-grid"><article class="project landscape" id="card-arsenal-matchday">
+<section class="section work" id="work" aria-labelledby="work-title"><div class="section-top"><span class="mono">(02) / Portfolio</span><span class="mono">Selected projects / 01—06</span></div><div class="work-intro"><h2 id="work-title">Selected<br>work.</h2><p class="support">Sport. Fashion. Product.</p></div><div class="project-grid"><article class="project landscape" id="card-arsenal-matchday">
 <a class="project-cover" href="#arsenal-matchday" aria-label="Explore Matchday"><video autoplay loop muted playsinline preload="metadata" poster="assets/matchday-01.jpg" aria-label="Matchday campaign film"><source src="assets/matchday-hero.mp4" type="video/mp4"></video><span class="index">(01)</span><span class="pill">Campaign</span></a>
 <div class="caption"><h3><a href="#arsenal-matchday">Matchday</a></h3><span>Arsenal</span></div></article>
 <article class="project " id="card-arsenal-tiro">
@@ -66,7 +101,7 @@
 <figure><img src="assets/coldweather-03.jpg" alt="Arsenal Cold Weather — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 02</figcaption></figure>
 <figure><img src="assets/coldweather-04.jpg" alt="Arsenal Cold Weather — campaign photograph 3" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 03</figcaption></figure></div><a class="text-link" href="#card-arsenal-cold-weather">Back to selected work ↑</a></div></details>
 <details class="case-study" id="aspinal-sunglasses"><summary><span class="mono">(06)</span><span>Aspinal Sunglasses</span><span class="case-toggle" aria-hidden="true">+</span></summary><div class="case-content"><div class="case-intro"><p>A closer look at Aspinal of London.</p><span class="mono">Aspinal of London / Photography</span></div><img class="detail-cover" src="assets/aspinal-01.jpg" alt="Aspinal Sunglasses — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/aspinal-02.jpg" alt="Aspinal Sunglasses — campaign photograph 1" loading="lazy"><figcaption class="mono">Aspinal Sunglasses / 01</figcaption></figure></div><a class="text-link" href="#card-aspinal-sunglasses">Back to selected work ↑</a></div></details></div></section>
-<section class="section services" id="services" aria-labelledby="services-title"><div class="section-top"><span class="mono">(03) / London disciplines</span></div><div class="services-intro"><h2 id="services-title">The full<br>picture.</h2><p class="support">Six disciplines. A shared eye for the work.</p></div>
+<section class="section services" id="services" aria-labelledby="services-title"><div class="section-top"><span class="mono">(03) / London disciplines</span></div><div class="services-intro"><h2 id="services-title">Disciplines.</h2><p class="support">Six disciplines. A shared eye for the work.</p></div>
 <div class="service-row"><span class="mono">01</span><h3>Photography</h3><p>People, products and places. A clear point of view.</p></div>
 <div class="service-row"><span class="mono">02</span><h3>Retouching</h3><p>Colour, texture and detail, finished with care.</p></div>
 <div class="service-row"><span class="mono">03</span><h3>CGI</h3><p>Images built beyond the limits of the set.</p></div>
@@ -74,174 +109,214 @@
 <div class="service-row"><span class="mono">05</span><h3>Video</h3><p>Movement, rhythm and stories in frame.</p></div>
 <div class="service-row"><span class="mono">06</span><h3>Art direction</h3><p>A strong idea, carried through every decision.</p></div></section>
 <section class="section studio" id="studio" aria-labelledby="studio-title"><div class="section-top"><span class="mono">(04) / Inside the studio</span><span class="mono">London / Fulham</span></div><div class="studio-intro"><h2 id="studio-title">Every<br>detail.</h2><p class="support">Fabric, light, texture. Small decisions shape the image.</p></div><div class="studio-image"><img src="assets/oner-05.jpg" alt="Oner product photograph with paper approval notes" loading="lazy"><div><span class="mono">From the working archive</span><p>Image makers, art directors and producers working together from the start.</p><p><a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Piper%20Building%2C%20Peterborough%20Road%2C%20London%20SW6%203EF" target="_blank" rel="noopener">Visit the London studio ↗</a></p></div></div></section>
-<section class="section process" aria-labelledby="process-title"><div class="section-top"><span class="mono">(05) / How we work</span></div><h2 id="process-title">An idea.<br>Seen through.</h2><div class="process-row"><span class="mono">01</span><h3>Set the direction</h3><p>Define the idea, the audience and what the work needs to do.</p></div><div class="process-row"><span class="mono">02</span><h3>Plan production</h3><p>Direction, styling and production, agreed before the shoot.</p></div><div class="process-row"><span class="mono">03</span><h3>Make the work</h3><p>A clear plan, a collaborative set and room to experiment.</p></div><div class="process-row"><span class="mono">04</span><h3>Finish with care</h3><p>Editing, grading and retouching, true to the original idea.</p></div></section>
+<section class="section process" aria-labelledby="process-title"><div class="section-top"><span class="mono">(05) / How we work</span></div><h2 id="process-title">From brief<br>to delivery.</h2><div class="process-row"><span class="mono">01</span><h3>Set the direction</h3><p>Define the idea, the audience and what the work needs to do.</p></div><div class="process-row"><span class="mono">02</span><h3>Plan production</h3><p>Direction, styling and production, agreed before the shoot.</p></div><div class="process-row"><span class="mono">03</span><h3>Make the work</h3><p>A clear plan, a collaborative set and room to experiment.</p></div><div class="process-row"><span class="mono">04</span><h3>Finish with care</h3><p>Editing, grading and retouching, true to the original idea.</p></div></section>
 <section class="section numbers" aria-label="One collective, six disciplines, two studios"><div><p class="number lead">77</p><span class="mono">One collective</span></div><div><p class="number">06</p><span class="mono">Creative disciplines</span></div><div><p class="number">02</p><span class="mono">Studio locations</span></div></section>
-<section class="section manchester" id="manchester" aria-labelledby="manchester-title"><div class="section-top"><span class="mono">(06) / Manchester</span><span class="mono">Marketing & communications</span></div><div class="manchester-intro"><h2 id="manchester-title">Clarity.<br>Character.<br>Connection.</h2><p class="support">Manchester brings copywriting, B2B and marketing. London brings creative production. One Seventy7 team.</p></div><div class="manchester-services"><article><h3>Copywriting</h3><p>Clear messages. A consistent voice. Copy worth reading.</p></article><article><h3>B2B</h3><p>Make complex ideas clear for the people making decisions.</p></article><article><h3>Marketing</h3><p>Campaigns with a clear direction and a consistent voice.</p></article></div></section>
-<section class="section roster" aria-labelledby="roster-title"><div class="section-top"><span class="mono">(07) / The collective</span></div><h2 id="roster-title">Many minds.<br>One team.</h2><p class="support">The right people around the same idea. From the first conversation to the final delivery.</p><div class="clients" aria-label="Selected clients"><span>Arsenal</span><span>Adidas</span><span>Oner Active</span><span>Aspinal of London</span></div></section>
-<section class="contact" id="contact" aria-label="Contact Seventy7"><p class="mono">(08) / Start a conversation</p><a class="email" href="mailto:hello@seventy7group.com">hello@seventy7group.com ↗</a><div class="contact-bottom"><p>London / Creative production<br>Manchester / Marketing & communications</p><a class="text-link" href="#main">Back to top ↑</a></div></section>
+
+<section class="section roster" aria-labelledby="roster-title"><div class="section-top"><span class="mono">(07) / The collective</span></div><h2 id="roster-title">The studio.</h2><p class="support">The right people around the same idea. From the first conversation to the final delivery.</p><div class="clients" aria-label="Selected clients"><span>Arsenal</span><span>Adidas</span><span>Oner Active</span><span>Aspinal of London</span></div></section>
+<section class="contact" id="contact" aria-label="Contact Seventy7"><p class="mono">(08) / Start a conversation</p><a class="email" href="mailto:hello@seventy7group.com">hello@seventy7group.com ↗</a><div class="contact-bottom"><p>London / Creative production<br>The Piper Building, Peterborough Road, SW6 3EF</p><a class="text-link" href="#main">Back to top ↑</a></div></section>
+</div>
+<div class="studio-page manchester-page" id="manchester">
+<header class="site-nav"><a class="brand" href="#manchester" aria-label="Seventy7 Manchester"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Manchester navigation"><a href="#manchester-work">Work</a><a href="#manchester-services">Services</a><a href="#manchester-team">Studio</a><a href="#manchester-contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com?subject=Manchester%20enquiry">Let's talk ↗</a></nav></header>
+<section class="manchester-hero" aria-labelledby="manchester-title"><div class="manchester-heading"><p class="mono">Seventy7 / Manchester</p><h1 id="manchester-title">Copywriting.<br>B2B.<br>Marketing.</h1><p>Words, campaigns and communications<br>for businesses and their audiences.</p></div><figure class="manchester-placeholder"><div class="placeholder-art" role="img" aria-label="Graphic placeholder for Manchester studio photography"><span>WORDS<br>IN<br>CONTEXT.</span><i aria-hidden="true">*</i></div><figcaption class="mono">Placeholder / Manchester photography to follow</figcaption></figure></section>
+<section class="section services" id="manchester-services"><div class="section-top"><span class="mono">(01) / Manchester services</span><span class="mono">Draft copy / For review</span></div><div class="services-intro"><h2>What we do.</h2><p class="support">Copywriting, B2B and marketing. Built around what your audience needs to understand.</p></div><div class="service-row"><span class="mono">01</span><h3>Copywriting</h3><p>Brand voice, website copy and editorial. Clear writing with a consistent tone.</p></div><div class="service-row"><span class="mono">02</span><h3>B2B communications</h3><p>Explain the offer. Give people the information they need to make a decision.</p></div><div class="service-row"><span class="mono">03</span><h3>Marketing</h3><p>Campaign planning and content across channels, from the brief through to delivery.</p></div></section>
+<section class="section manchester-work" id="manchester-work"><div class="section-top"><span class="mono">(02) / Manchester work</span><span class="mono">Portfolio pending</span></div><h2>Case studies<br>to follow.</h2><p class="support">Manchester project stories and results will appear here once approved.</p><a class="text-link" href="mailto:hello@seventy7group.com?subject=Manchester%20work%20enquiry">Ask about Manchester work ↗</a></section>
+<section class="section services" id="manchester-team"><div class="section-top"><span class="mono">(03) / Manchester team</span><span class="mono">Placeholder / Team details pending</span></div><div class="services-intro"><h2>The people<br>behind it.</h2><p class="support">This space is reserved for the Manchester team. Names, roles and portraits are still to be supplied.</p></div><div class="team-placeholder"><span class="mono">Copywriting</span><span class="mono">B2B</span><span class="mono">Marketing</span></div></section>
+<section class="contact" id="manchester-contact"><p class="mono">(04) / Contact Manchester</p><a class="email" href="mailto:hello@seventy7group.com?subject=Manchester%20enquiry">hello@seventy7group.com ↗</a><div class="contact-bottom"><div><p>Manchester enquiries / Shared Seventy7 inbox</p><p class="pending-contact">Manchester address and direct telephone: to be confirmed.</p></div><a class="text-link" href="#manchester">Back to top ↑</a></div></section>
+</div>
 </main>
-<footer class="site-footer"><span>© Seventy7</span><span>London & Manchester</span><a href="mailto:hello@seventy7group.com">Get in touch ↗</a></footer>
+<footer class="site-footer"><span>© Seventy7</span><nav aria-label="Studios"><a href="#london">London</a> / <a href="#manchester">Manchester</a></nav><a href="mailto:hello@seventy7group.com">Get in touch ↗</a></footer>
 <!-- Hidden in the actual HTML. With JavaScript disabled or a parse error, the gate never covers the page. -->
 <div class="gate" id="intro-gate" hidden role="dialog" aria-modal="true" aria-label="Choose a Seventy7 studio">
 <div class="gate-split"><div class="gate-panel"><img src="assets/coldweather-01.jpg" alt="Arsenal Cold Weather studio campaign"><button class="gate-select" data-location="london"><span class="mono">Creative production / Enter studio</span><strong>London ↗</strong><span class="gate-time">Europe / London</span></button><a class="gate-map" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Piper%20Building%2C%20Peterborough%20Road%2C%20London%20SW6%203EF" target="_blank" rel="noopener">The Piper Building, Peterborough Road<br>London SW6 3EF ↗</a></div><div class="gate-panel"><img src="assets/matchday-02.jpg" alt="Arsenal Matchday campaign"><button class="gate-select" data-location="manchester"><span class="mono">Marketing & communications / Enter studio</span><strong>Manchester ↗</strong><span class="gate-time">Europe / London</span></button><span class="gate-directions mono">Copywriting / B2B / Marketing</span></div></div>
-<div class="gate-reel"></div><div class="gate-white" hidden></div><div class="gate-doors" hidden><div class="gate-door left"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div><div class="gate-door right"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div></div><button class="gate-skip" type="button">Skip intro ↗</button>
+<div class="gate-loading"><span>Seventy7</span><span class="mono">Loading studio reel</span></div><div class="gate-reel"></div><div class="gate-white" hidden></div><div class="gate-doors" hidden><div class="gate-door left"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div><div class="gate-door right"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div></div><button class="gate-skip" type="button">Skip intro ↗</button>
 </div>
 <script>
-/* The document is fully usable without this script. No visibility classes are applied to site content. */
+/* All content is static HTML. Intro and motion are optional enhancements.
+   A visit means this document load: internal navigation never replays the gate.
+   No persistent storage can suppress the intro on the next full visit. */
 (() => {
   'use strict';
   const gate = document.getElementById('intro-gate');
-  const main = document.getElementById('main');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let active = false, exiting = false, clock = null, watchdog = null;
-  const animations = new Set();
-  const visitKey = 'seventy7-landing-gate-v5';
+  if (!gate) return;
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const animations = new Set(), media = [];
+  let active = false, exiting = false, sequenceStopped = false, watchdog, clock;
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-  const rememberVisit = () => { try { sessionStorage.setItem(visitKey, 'entered'); } catch (_) {} };
-  function clearGate(location) {
+  const q = selector => gate.querySelector(selector);
+  const all = selector => Array.from(gate.querySelectorAll(selector));
+  function unlock() {
+    document.body.classList.remove('gate-active');
+    document.querySelectorAll('[data-gate-inert]').forEach(el => { el.inert = false; el.removeAttribute('data-gate-inert'); });
+  }
+  function removeGate() {
     active = false;
     clearTimeout(watchdog); clearInterval(clock);
     animations.forEach(a => a.cancel()); animations.clear();
-    gate.hidden = true; gate.remove();
-    document.body.classList.remove('gate-active');
-    document.querySelectorAll('[data-gate-inert]').forEach(el => { el.inert = false; el.removeAttribute('data-gate-inert'); });
-    if (location) { document.body.dataset.studio = location; rememberVisit(); }
+    media.forEach(r => { if (r.video) { try { r.el.pause(); } catch (_) {} } });
+    gate.hidden = true; gate.remove(); unlock();
   }
-  // Bounded native animation: rejected/cancelled animations never block a phase.
-  async function animate(el, frames, duration, easing = 'cubic-bezier(.22,.75,.25,1)') {
-    if (!active || reduced.matches || typeof el.animate !== 'function') return;
-    const a = el.animate(frames, {duration, easing, fill:'none'});
-    animations.add(a);
-    try { await Promise.race([a.finished.catch(() => {}), sleep(duration + 150)]); }
-    finally { a.cancel(); animations.delete(a); }
+  function navigate(studio) {
+    location.hash = studio;
+    document.body.dataset.studio = studio;
+    const target = document.getElementById(studio);
+    if (target) { target.setAttribute('tabindex','-1'); target.focus({preventScroll:true}); }
+    window.scrollTo({top:0,behavior:'instant'});
   }
-  async function exitGate(location) {
+  async function animate(el, frames, duration, easing='cubic-bezier(.22,.75,.25,1)') {
+    if (!active || motion.matches || typeof el.animate !== 'function') return;
+    const animation = el.animate(frames,{duration,easing,fill:'forwards'});
+    animations.add(animation);
+    await Promise.race([animation.finished.catch(() => {}),sleep(duration+150)]);
+    // Keep the final frame until its overlay is hidden/removed; no snap-back.
+  }
+  async function exit(studio) {
     if (!active || exiting) return;
     exiting = true;
-    clearTimeout(watchdog);
-    // Set cleanup before attempting any exit animation.
-    watchdog = setTimeout(() => clearGate(location), 750);
+    const finish = () => { removeGate(); navigate(studio); };
+    clearTimeout(watchdog); watchdog = setTimeout(finish,750);
+    // Change route beneath the opaque gate before the exit begins.
+    location.hash = studio;
     try {
-      await Promise.all(Array.from(gate.querySelectorAll('.gate-panel')).map((panel, i) =>
-        animate(panel, [{transform:'translateX(0)'},{transform:`translateX(${i ? 100 : -100}%)`}], 520)));
-    } finally {
-      clearGate(location);
-      const target = document.getElementById(location === 'manchester' ? 'manchester' : 'main');
-      if (target) { target.setAttribute('tabindex','-1'); target.focus({preventScroll:true}); target.scrollIntoView({behavior:'instant',block:'start'}); }
-    }
+      q('.gate-loading').hidden = true;
+      q('.gate-reel').hidden = true;
+      q('.gate-white').hidden = true;
+      q('.gate-doors').hidden = true;
+      await Promise.all(all('.gate-panel').map((el,i) => animate(el,[{transform:'translateX(0)'},{transform:`translateX(${i?100:-100}%)`}],520)));
+    } catch (_) {} finally { finish(); }
   }
-  function showSplit() {
-    if (!active) return;
-    gate.querySelector('.gate-reel').hidden = true;
-    gate.querySelector('.gate-white').hidden = true;
-    gate.querySelector('.gate-doors').hidden = true;
+  function split() {
+    if (!active || exiting) return;
+    sequenceStopped = true;
+    ['.gate-loading','.gate-reel','.gate-white','.gate-doors','.gate-skip'].forEach(selector => q(selector).hidden = true);
+    media.forEach(r => { if (r.video) r.el.pause(); });
     clearTimeout(watchdog);
-    gate.querySelector('.gate-skip').hidden = true;
-    gate.querySelector('.gate-select').focus({preventScroll:true});
+    all('.gate-select')[0].focus({preventScroll:true});
   }
-  function loadImage(src) {
-    const image = new Image();
-    let finish;
-    const ready = new Promise(resolve => { finish = resolve; });
-    const record = {image, loaded:false, ready};
-    image.onload = () => { record.loaded = image.naturalWidth > 0; finish(record); };
-    image.onerror = () => finish(record);
-    image.src = src;
-    if (image.complete) { record.loaded = image.naturalWidth > 0; finish(record); }
-    return record;
-  }
-  async function intro() {
-    const filenames = ['matchday-01.jpg','tiro-01.jpg','oner-08.jpg','coldweather-01.jpg','aspinal-01.jpg','summer-01.jpg','matchday-04.jpg','oner-09.jpg','tiro-03.jpg','coldweather-02.jpg'];
-    const shots = filenames.map(file => loadImage('assets/' + file));
-    const mark = loadImage('assets/seventy7-77mark.png');
-    await Promise.race([Promise.all([...shots, mark].map(r => r.ready)), sleep(2000)]);
-    if (!active) return;
-    if (reduced.matches) { showSplit(); return; }
-    const reel = gate.querySelector('.gate-reel');
-    const white = gate.querySelector('.gate-white');
-    const doors = gate.querySelector('.gate-doors');
-    const available = shots.filter(r => r.loaded);
-    // Only decoded/loaded shots enter the reel; a failed URL never produces a broken-image frame.
-    if (available.length) {
-      available.forEach(({image}) => { image.alt = ''; image.hidden = true; reel.append(image); });
-      reel.hidden = false;
-      for (let i = 0; i < available.length && active; i++) {
-        const image = available[i].image;
-        image.hidden = false;
-        await sleep(90 - Math.round(i / Math.max(1, available.length - 1) * 30));
-        if (!active) return;
-        white.hidden = false;
-        await sleep(25);
-        image.hidden = true;
-        white.hidden = true;
-      }
-    }
-    if (!active) return;
-    // Mark halves use two identical, unfiltered images clipped at their natural centre gap.
-    if (!mark.loaded) { showSplit(); return; }
-    gate.style.setProperty('--native-mark', (mark.image.naturalWidth / (window.devicePixelRatio || 1) / 1.3) + 'px');
-    doors.hidden = false; reel.hidden = true;
-    await Promise.all(Array.from(gate.querySelectorAll('.mark-stage')).map(el => animate(el, [
-      {transform:'scale(1.3)'}, {transform:'scale(.97)',offset:.7}, {transform:'scale(1)'}
-    ], 340, 'cubic-bezier(.2,.8,.2,1)')));
-    await sleep(480);
-    if (!active) return;
-    await Promise.all(Array.from(gate.querySelectorAll('.gate-door')).map((el,i) => animate(el,[
-      {transform:'translateX(0)'},{transform:`translateX(${i ? 100 : -100}%)`}
-    ], 780)));
-    showSplit();
-  }
-  try {
-    let visited = false;
-    try { visited = sessionStorage.getItem(visitKey) === 'entered'; } catch (_) {}
-    if (!visited && gate && typeof Element.prototype.animate === 'function') {
-      // Arm the escape hatch BEFORE showing or locking anything.
-      watchdog = setTimeout(() => clearGate(), 6500);
-      gate.querySelectorAll('.gate-select').forEach(button => button.addEventListener('click', () => exitGate(button.dataset.location)));
-      gate.querySelector('.gate-skip').addEventListener('click', () => exitGate('london'));
-      gate.addEventListener('keydown', event => {
-        if (event.key === 'Escape') { event.preventDefault(); exitGate('london'); }
-        if (event.key === 'Tab') {
-          const items = Array.from(gate.querySelectorAll('button,a')).filter(el => !el.hidden);
-          const first = items[0], last = items[items.length-1];
-          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  function imageRecord(file) {
+    const el = new Image();
+    const record = {el,loaded:false,video:false};
+    record.ready = new Promise(resolve => {
+      const finish = async () => {
+        if (el.naturalWidth) {
+          try { if (el.decode) await el.decode(); } catch (_) {}
+          record.loaded = el.naturalWidth > 0;
         }
-      });
-      const tick = () => {
-        const time = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());
-        gate.querySelectorAll('.gate-time').forEach(el => el.textContent = time + ' / UK');
+        resolve(record);
       };
-      tick(); clock = setInterval(tick,1000);
-      active = true; gate.hidden = false;
-      document.body.classList.add('gate-active');
-      document.querySelectorAll('body > header,body > main,body > footer,body > .skip').forEach(el => { el.inert = true; el.setAttribute('data-gate-inert',''); });
-      gate.querySelector('.gate-skip').focus({preventScroll:true});
-      if (reduced.matches) showSplit(); else intro().catch(() => clearGate());
-    }
-  } catch (_) { clearGate(); }
-  // Native disclosure galleries remain operable without JavaScript.
-  function openProject(hash) {
-    const id = hash.slice(1);
-    const detail = id && document.getElementById(id);
-    if (detail && detail.tagName === 'DETAILS') detail.open = true;
+      el.onload = finish; el.onerror = () => resolve(record);
+      el.src = 'assets/' + file; el.alt = ''; el.hidden = true;
+      if (el.complete) finish();
+    });
+    media.push(record); return record;
   }
-  openProject(location.hash);
-  document.querySelectorAll('.project a').forEach(link => link.addEventListener('click', () => openProject(link.hash)));
-  window.addEventListener('hashchange', () => openProject(location.hash));
-  // Modest, transform-only reveals. The CSS resting state is always visible.
-  try {
-    if (!reduced.matches && 'IntersectionObserver' in window && typeof Element.prototype.animate === 'function') {
-      const observer = new IntersectionObserver(entries => {
-        for (const entry of entries) if (entry.isIntersecting) {
-          observer.unobserve(entry.target);
-          try { entry.target.animate([{transform:'translateY(18px)'},{transform:'translateY(0)'}],{duration:1000,easing:'cubic-bezier(.2,.6,.2,1)',fill:'none'}); } catch (_) {}
-        }
-      },{threshold:.12});
-      document.querySelectorAll('.work-intro,.project,.services-intro,.service-row,.studio-intro,.process-row,.manchester-services article,.roster h2').forEach(el => observer.observe(el));
+  function videoRecord(file,offset) {
+    const el = document.createElement('video');
+    el.muted = true; el.defaultMuted = true; el.playsInline = true; el.loop = true; el.preload = 'auto';
+    el.setAttribute('muted',''); el.setAttribute('playsinline',''); el.setAttribute('aria-hidden','true');
+    el.hidden = true;
+    const record = {el,loaded:false,video:true};
+    record.ready = new Promise(resolve => {
+      let seeking = false;
+      const ready = () => { record.loaded = el.readyState >= 2; resolve(record); };
+      el.addEventListener('loadeddata',() => {
+        if (seeking) return;
+        seeking = true;
+        try { el.currentTime = Math.min(offset, Math.max(0,(el.duration||offset+1)-.2)); } catch (_) { ready(); }
+        if (!el.seeking) ready();
+      });
+      el.addEventListener('seeked',ready,{once:true});
+      el.addEventListener('error',() => resolve(record),{once:true});
+      el.src = 'assets/' + file; el.load();
+    });
+    media.push(record); return record;
+  }
+  async function playIntro() {
+    // Twelve distinct photographs plus three short, muted video inserts.
+    const beats = [
+      imageRecord('matchday-01.jpg'),imageRecord('tiro-01.jpg'),imageRecord('oner-08.jpg'),
+      videoRecord('arsenal-summer.mp4',.3),
+      imageRecord('coldweather-01.jpg'),imageRecord('aspinal-01.jpg'),imageRecord('summer-01.jpg'),
+      videoRecord('matchday-hero.mp4',.5),
+      imageRecord('matchday-04.jpg'),imageRecord('oner-09.jpg'),imageRecord('tiro-03.jpg'),
+      videoRecord('arsenal-summer.mp4',1.3),
+      imageRecord('coldweather-02.jpg'),imageRecord('aspinal-02.jpg'),imageRecord('matchday-07.jpg')
+    ];
+    const mark = imageRecord('seventy7-77mark.png');
+    await Promise.race([Promise.all(media.map(r => r.ready)),sleep(2000)]);
+    if (!active || exiting || sequenceStopped) return;
+    if (motion.matches) { split(); return; }
+    const available = beats.filter(r => r.loaded);
+    available.forEach(r => q('.gate-reel').append(r.el));
+    q('.gate-loading').hidden = true;
+    for (let i=0;i<available.length;i++) {
+      if (!active || exiting || sequenceStopped) return;
+      const record = available[i]; record.el.hidden = false;
+      if (record.video) { try { const p=record.el.play(); if(p) p.catch(() => {}); } catch (_) {} }
+      await sleep(140-Math.round(40*i/Math.max(1,available.length-1)));
+      if (!active || exiting || sequenceStopped) return;
+      q('.gate-white').hidden = false;
+      await sleep(25);
+      record.el.hidden = true;
+      if (record.video) record.el.pause();
+      q('.gate-white').hidden = true;
     }
-  } catch (_) { /* Nothing to reset: page content has never been hidden. */ }
+    if (!active || exiting || sequenceStopped) return;
+    // The reel is now black. The mark is never inverted or blurred.
+    await sleep(50);
+    if (!active || exiting || sequenceStopped) return;
+    if (!mark.loaded) { split(); return; }
+    gate.style.setProperty('--native-mark',(mark.el.naturalWidth/(window.devicePixelRatio||1)/1.3)+'px');
+    q('.gate-doors').hidden = false;
+    q('.gate-reel').hidden = true;
+    await Promise.all(all('.mark-stage').map(el => animate(el,[{transform:'scale(1.3)'},{transform:'scale(.97)',offset:.7},{transform:'scale(1)'}],340)));
+    await sleep(480);
+    if (!active || exiting || sequenceStopped) return;
+    await Promise.all(all('.gate-door').map((el,i) => animate(el,[{transform:'translateX(0)'},{transform:`translateX(${i?100:-100}%)`}],780)));
+    split();
+  }
+  // Wire every exit and arm the watchdog before displaying the gate.
+  try {
+    all('.gate-select').forEach(button => button.addEventListener('click',() => exit(button.dataset.location)));
+    q('.gate-skip').addEventListener('click',() => exit('london'));
+    gate.addEventListener('keydown',event => {
+      if(event.key==='Escape') { event.preventDefault(); exit('london'); }
+      if(event.key==='Tab') {
+        const targets=all('button,a').filter(el=>!el.hidden);
+        const first=targets[0],last=targets[targets.length-1];
+        if(event.shiftKey&&document.activeElement===first) {event.preventDefault();last.focus();}
+        else if(!event.shiftKey&&document.activeElement===last) {event.preventDefault();first.focus();}
+      }
+    });
+    watchdog=setTimeout(removeGate,7500);
+    active=true; gate.hidden=false; document.body.classList.add('gate-active');
+    document.querySelectorAll('body > main,body > footer,body > .skip').forEach(el=>{el.inert=true;el.setAttribute('data-gate-inert','');});
+    q('.gate-skip').focus({preventScroll:true});
+    const tick=()=>{const time=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());all('.gate-time').forEach(el=>el.textContent=time+' / UK');};
+    tick();clock=setInterval(tick,1000);
+    if(motion.matches) split(); else playIntro().catch(removeGate);
+    motion.addEventListener?.('change',event=>{if(event.matches&&active&&!exiting){animations.forEach(a=>a.cancel());split();}});
+  } catch (_) { removeGate(); }
 })();
+/* Navigation and portfolio enhancement are independent of the intro. */
+(() => {
+  function route() {
+    const target=document.getElementById(location.hash.slice(1));
+    if(target&&target.tagName==='DETAILS') target.open=true;
+    document.title=(location.hash.startsWith('#manchester')?'Manchester — Marketing & communications':'London — Creative production')+' / Seventy7';
+  }
+  route(); window.addEventListener('hashchange',route);
+  document.querySelectorAll('.project a').forEach(link=>link.addEventListener('click',()=>{
+    const detail=document.getElementById(link.hash.slice(1));
+    if(detail) {document.querySelectorAll('.case-study[open]').forEach(other=>{if(other!==detail)other.open=false;});detail.open=true;}
+  }));
+  try {
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window) {
+      const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){observer.unobserve(entry.target);try{entry.target.animate([{transform:'translateY(16px)'},{transform:'translateY(0)'}],{duration:1000,easing:'cubic-bezier(.2,.6,.2,1)'});}catch(_){}}});},{threshold:.1});
+      document.querySelectorAll('.service-row,.process-row,.studio-intro').forEach(el=>observer.observe(el));
+    }
+  }catch(_){} // Underlying CSS is always opacity:1 and transform:none.
+})();
+
 </script>
 </body>
 </html>
