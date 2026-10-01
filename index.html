@@ -5,6 +5,8 @@
 <meta name="theme-color" content="#410f16">
 <meta name="description" content="Seventy7. London creative production and Manchester marketing. Photography, film, retouching, CGI, styling and art direction.">
 <link rel="preload" as="image" href="assets/matchday-01.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/tiro-01.jpg">
+<link rel="preload" as="image" href="assets/oner-08.jpg">
 <link rel="preload" as="image" href="assets/seventy7-77mark.png">
 <title>Seventy7 — London / Manchester</title>
 <style>
@@ -69,10 +71,32 @@ body:has(.case-page:target) .london-page,body:has(.case-page:target) .manchester
 .case-page .gallery figcaption{color:#655f58}.case-page .case-content{padding:0}
 @media(max-width:760px){.case-page-body{padding-top:36px}.case-page-top{margin-bottom:48px}.case-page-body>h1{font-size:clamp(48px,12vw,84px)}.case-page .gallery{grid-template-columns:1fr}}
 
+
+/* Black first paint; CSS alone removes the cover if scripting fails. */
+#first-paint{position:fixed;inset:0;background:#000;z-index:10000;animation:cover-failsafe 8s step-end forwards}
+@keyframes cover-failsafe{to{visibility:hidden;pointer-events:none}}
+@keyframes scroll-failsafe{to{overflow:auto}}
+.gate{animation:cover-failsafe 8s step-end forwards}
+body.gate-active{animation:scroll-failsafe 8s step-end forwards}
+body.gate-ready{animation:none}
+.gate-reel .reel-frame{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;will-change:opacity;transform:translateZ(0);pointer-events:none}
+.gate-reel .reel-frame.is-active{opacity:1}
+.gate-white{will-change:opacity;transform:translateZ(0)}
+.case-facts{display:grid;grid-template-columns:1fr 1fr 2fr;gap:32px;border-top:1px solid #15141330;padding-top:24px;margin:0 0 56px}
+.case-facts dt{font:11px "Courier New",monospace;text-transform:uppercase;color:#655f58;margin-bottom:10px}.case-facts dd{margin:0;font-size:15px}
+.case-page .case-hero{width:100%;height:auto;max-height:none;object-fit:contain;aspect-ratio:auto}
+.case-image-grid{display:grid;gap:60px;margin:80px 0 100px}.image-row{display:grid;gap:24px;align-items:start}.image-row.cols-1{grid-template-columns:1fr}.image-row.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.image-row.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.case-image-grid img{width:100%;height:auto;object-fit:contain;aspect-ratio:auto}.case-image-grid figcaption{margin-top:12px;color:#655f58}
+.next-project{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center;border-top:1px solid #15141330;padding:60px 0;margin-bottom:30px}.next-project h2{font-size:clamp(42px,6vw,96px);margin-top:28px}.next-project img{width:100%;height:auto;max-height:480px;object-fit:contain}.next-project:hover h2{color:var(--red)}
+@media(max-width:760px){.case-facts{gap:20px;grid-template-columns:1fr 1fr}.case-facts>div:last-child{grid-column:1/-1}.case-image-grid{gap:32px;margin:48px 0 64px}.image-row{gap:12px}.next-project{gap:28px;grid-template-columns:1fr}.image-row.cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}.image-row.cols-3>figure:last-child{grid-column:1/-1;max-width:70%;justify-self:center}}
+
+@media(prefers-reduced-motion:reduce){#first-paint,.gate{animation:cover-failsafe 8s step-end forwards!important}.gate.is-resting{animation:none!important}}
 </style>
 
 </head>
 <body>
+<div id="first-paint" aria-hidden="true"></div>
+<noscript><style>#first-paint{display:none}</style></noscript>
 <a class="skip" href="#main">Skip to content</a>
 <main id="main" tabindex="-1"><div class="studio-page london-page"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header>
 <section class="hero" id="london" aria-labelledby="hero-title"><img src="assets/coldweather-01.jpg" width="2400" height="1601" alt="Two models in black and red Arsenal fleece against a dark studio background" fetchpriority="high"><div class="hero-meta"><div class="hero-copy"><p class="mono">Seventy7 / London / Creative production</p><h1 id="hero-title" class="visually-hidden">Seventy7 London creative production</h1></div><p>Photography, film and art direction.<br>From first idea to final image.</p></div></section>
@@ -123,212 +147,143 @@ body:has(.case-page:target) .london-page,body:has(.case-page:target) .manchester
 <section class="contact" id="manchester-contact"><p class="mono">(04) / Contact Manchester</p><a class="email" href="mailto:hello@seventy7group.com?subject=Manchester%20enquiry">hello@seventy7group.com ↗</a><div class="contact-bottom"><div><p>Manchester enquiries / Shared Seventy7 inbox</p><p class="pending-contact">Manchester address and direct telephone: to be confirmed.</p></div><a class="text-link" href="#manchester">Back to top ↑</a></div></section>
 </div>
 
-<div class="case-page" id="arsenal-tiro" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-arsenal-tiro">← Selected work</a><span class="mono">(02) / London</span></div><h1>Arsenal Tiro</h1><div class="case-content"><div class="case-intro"><p>Portraits and movement, set against deep red.</p><span class="mono">Arsenal / Photography</span></div><img class="detail-cover" src="assets/tiro-01.jpg" alt="Arsenal Tiro — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/tiro-02.jpg" alt="Arsenal Tiro — campaign photograph 1" loading="lazy"><figcaption class="mono">Arsenal Tiro / 01</figcaption></figure>
-<figure><img src="assets/tiro-03.jpg" alt="Arsenal Tiro — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Tiro / 02</figcaption></figure>
-<figure><img src="assets/tiro-04.jpg" alt="Arsenal Tiro — campaign photograph 3" loading="lazy"><figcaption class="mono">Arsenal Tiro / 03</figcaption></figure></div><a class="text-link" href="#card-arsenal-tiro">Back to selected work ↑</a></div></article></div>
-<div class="case-page" id="arsenal-matchday" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-arsenal-matchday">← Selected work</a><span class="mono">(01) / London</span></div><h1>Matchday</h1><div class="case-content"><div class="case-intro"><p>Matchday style, from the memorabilia shop to the stadium steps.</p><span class="mono">Arsenal / Campaign</span></div><img class="detail-cover" src="assets/matchday-03.jpg" alt="Matchday — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/matchday-03.jpg" alt="Matchday — campaign photograph 1" loading="lazy"><figcaption class="mono">Matchday / 01</figcaption></figure>
-<figure><img src="assets/matchday-02.jpg" alt="Matchday — campaign photograph 2" loading="lazy"><figcaption class="mono">Matchday / 02</figcaption></figure>
-<figure><img src="assets/matchday-07.jpg" alt="Matchday — campaign photograph 3" loading="lazy"><figcaption class="mono">Matchday / 03</figcaption></figure>
-<figure><img src="assets/matchday-04.jpg" alt="Matchday — campaign photograph 4" loading="lazy"><figcaption class="mono">Matchday / 04</figcaption></figure>
-<figure><img src="assets/matchday-05.jpg" alt="Matchday — campaign photograph 5" loading="lazy"><figcaption class="mono">Matchday / 05</figcaption></figure>
-<figure><img src="assets/matchday-06.jpg" alt="Matchday — campaign photograph 6" loading="lazy"><figcaption class="mono">Matchday / 06</figcaption></figure></div><a class="text-link" href="#card-arsenal-matchday">Back to selected work ↑</a></div></article></div>
-<div class="case-page" id="arsenal-summer" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-arsenal-summer">← Selected work</a><span class="mono">(03) / London</span></div><h1>Arsenal Summer</h1><div class="case-content"><div class="case-intro"><p>Arsenal. In motion.</p><span class="mono">Arsenal / Film</span></div><video controls loop muted playsinline preload="none" poster="assets/summer-01.jpg"><source src="assets/arsenal-summer.mp4" type="video/mp4"></video><div class="gallery"><figure><img src="assets/summer-01.jpg" alt="Arsenal Summer — campaign photograph 1" loading="lazy"><figcaption class="mono">Arsenal Summer / 01</figcaption></figure>
-<figure><img src="assets/summer-02.jpg" alt="Arsenal Summer — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Summer / 02</figcaption></figure></div><a class="text-link" href="#card-arsenal-summer">Back to selected work ↑</a></div></article></div>
-<div class="case-page" id="oner-active" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-oner-active">← Selected work</a><span class="mono">(04) / London</span></div><h1>Oner Active</h1><div class="case-content"><div class="case-intro"><p>SoftMotion / Icon. Product, paper and texture.</p><span class="mono">Oner Active / Still life</span></div><img class="detail-cover" src="assets/oner-08.jpg" alt="Oner Active — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/oner-09.jpg" alt="Oner Active — campaign photograph 1" loading="lazy"><figcaption class="mono">Oner Active / 01</figcaption></figure>
-<figure><img src="assets/oner-01.jpg" alt="Oner Active — campaign photograph 2" loading="lazy"><figcaption class="mono">Oner Active / 02</figcaption></figure>
-<figure><img src="assets/oner-02.jpg" alt="Oner Active — campaign photograph 3" loading="lazy"><figcaption class="mono">Oner Active / 03</figcaption></figure>
-<figure><img src="assets/oner-03.jpg" alt="Oner Active — campaign photograph 4" loading="lazy"><figcaption class="mono">Oner Active / 04</figcaption></figure>
-<figure><img src="assets/oner-04.jpg" alt="Oner Active — campaign photograph 5" loading="lazy"><figcaption class="mono">Oner Active / 05</figcaption></figure>
-<figure><img src="assets/oner-05.jpg" alt="Oner Active — campaign photograph 6" loading="lazy"><figcaption class="mono">Oner Active / 06</figcaption></figure>
-<figure><img src="assets/oner-06.jpg" alt="Oner Active — campaign photograph 7" loading="lazy"><figcaption class="mono">Oner Active / 07</figcaption></figure>
-<figure><img src="assets/oner-07.jpg" alt="Oner Active — campaign photograph 8" loading="lazy"><figcaption class="mono">Oner Active / 08</figcaption></figure></div><a class="text-link" href="#card-oner-active">Back to selected work ↑</a></div></article></div>
-<div class="case-page" id="arsenal-cold-weather" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-arsenal-cold-weather">← Selected work</a><span class="mono">(05) / London</span></div><h1>Arsenal Cold Weather</h1><div class="case-content"><div class="case-intro"><p>Black and red fleece. Soft haze. Texture in focus.</p><span class="mono">Adidas x Arsenal / Photography</span></div><img class="detail-cover" src="assets/coldweather-01.jpg" alt="Arsenal Cold Weather — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/coldweather-02.jpg" alt="Arsenal Cold Weather — campaign photograph 1" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 01</figcaption></figure>
-<figure><img src="assets/coldweather-03.jpg" alt="Arsenal Cold Weather — campaign photograph 2" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 02</figcaption></figure>
-<figure><img src="assets/coldweather-04.jpg" alt="Arsenal Cold Weather — campaign photograph 3" loading="lazy"><figcaption class="mono">Arsenal Cold Weather / 03</figcaption></figure></div><a class="text-link" href="#card-arsenal-cold-weather">Back to selected work ↑</a></div></article></div>
-<div class="case-page" id="aspinal-sunglasses" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a class="text-link" href="#card-aspinal-sunglasses">← Selected work</a><span class="mono">(06) / London</span></div><h1>Aspinal Sunglasses</h1><div class="case-content"><div class="case-intro"><p>A closer look at Aspinal of London.</p><span class="mono">Aspinal of London / Photography</span></div><img class="detail-cover" src="assets/aspinal-01.jpg" alt="Aspinal Sunglasses — campaign overview" loading="lazy"><div class="gallery"><figure><img src="assets/aspinal-02.jpg" alt="Aspinal Sunglasses — campaign photograph 1" loading="lazy"><figcaption class="mono">Aspinal Sunglasses / 01</figcaption></figure></div><a class="text-link" href="#card-aspinal-sunglasses">Back to selected work ↑</a></div></article></div>
+<div class="case-page" id="arsenal-matchday" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a href="#work" class="text-link">← Back to all work</a><span class="mono">(01) / London</span></div><h1>Matchday</h1><dl class="case-facts"><div><dt>Client</dt><dd>Arsenal</dd></div><div><dt>Year</dt><dd>To confirm</dd></div><div><dt>Scope</dt><dd>Photography / Film</dd></div></dl><video class="case-hero" controls muted playsinline preload="metadata" poster="assets/matchday-01.jpg"><source src="assets/matchday-hero.mp4" type="video/mp4"></video><div class="case-image-grid"><div class="image-row cols-1"><figure><img src="assets/matchday-01.jpg" alt="Matchday — photograph 01" loading="lazy" decoding="async"><figcaption class="mono">01 / 07</figcaption></figure></div><div class="image-row cols-2"><figure><img src="assets/matchday-02.jpg" alt="Matchday — photograph 02" loading="lazy" decoding="async"><figcaption class="mono">02 / 07</figcaption></figure><figure><img src="assets/matchday-03.jpg" alt="Matchday — photograph 03" loading="lazy" decoding="async"><figcaption class="mono">03 / 07</figcaption></figure></div><div class="image-row cols-1"><figure><img src="assets/matchday-04.jpg" alt="Matchday — photograph 04" loading="lazy" decoding="async"><figcaption class="mono">04 / 07</figcaption></figure></div><div class="image-row cols-3"><figure><img src="assets/matchday-05.jpg" alt="Matchday — photograph 05" loading="lazy" decoding="async"><figcaption class="mono">05 / 07</figcaption></figure><figure><img src="assets/matchday-06.jpg" alt="Matchday — photograph 06" loading="lazy" decoding="async"><figcaption class="mono">06 / 07</figcaption></figure><figure><img src="assets/matchday-07.jpg" alt="Matchday — photograph 07" loading="lazy" decoding="async"><figcaption class="mono">07 / 07</figcaption></figure></div></div><a class="next-project" href="#arsenal-tiro"><div><span class="mono">Next project</span><h2>Arsenal Tiro <span aria-hidden="true">↗</span></h2></div><img src="assets/tiro-01.jpg" alt="Arsenal Tiro campaign" loading="lazy"></a><a class="text-link" href="#work">Back to all work ↑</a></article></div>
+<div class="case-page" id="arsenal-tiro" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a href="#work" class="text-link">← Back to all work</a><span class="mono">(02) / London</span></div><h1>Arsenal Tiro</h1><dl class="case-facts"><div><dt>Client</dt><dd>Arsenal</dd></div><div><dt>Year</dt><dd>To confirm</dd></div><div><dt>Scope</dt><dd>Photography</dd></div></dl><img class="case-hero" src="assets/tiro-01.jpg" alt="Arsenal Tiro campaign" loading="lazy"><div class="case-image-grid"><div class="image-row cols-1"><figure><img src="assets/tiro-01.jpg" alt="Arsenal Tiro — photograph 01" loading="lazy" decoding="async"><figcaption class="mono">01 / 04</figcaption></figure></div><div class="image-row cols-3"><figure><img src="assets/tiro-02.jpg" alt="Arsenal Tiro — photograph 02" loading="lazy" decoding="async"><figcaption class="mono">02 / 04</figcaption></figure><figure><img src="assets/tiro-03.jpg" alt="Arsenal Tiro — photograph 03" loading="lazy" decoding="async"><figcaption class="mono">03 / 04</figcaption></figure><figure><img src="assets/tiro-04.jpg" alt="Arsenal Tiro — photograph 04" loading="lazy" decoding="async"><figcaption class="mono">04 / 04</figcaption></figure></div></div><a class="next-project" href="#arsenal-summer"><div><span class="mono">Next project</span><h2>Arsenal Summer <span aria-hidden="true">↗</span></h2></div><img src="assets/summer-01.jpg" alt="Arsenal Summer campaign" loading="lazy"></a><a class="text-link" href="#work">Back to all work ↑</a></article></div>
+<div class="case-page" id="arsenal-summer" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a href="#work" class="text-link">← Back to all work</a><span class="mono">(03) / London</span></div><h1>Arsenal Summer</h1><dl class="case-facts"><div><dt>Client</dt><dd>Arsenal</dd></div><div><dt>Year</dt><dd>To confirm</dd></div><div><dt>Scope</dt><dd>Film / Photography</dd></div></dl><video class="case-hero" controls muted playsinline preload="metadata" poster="assets/summer-01.jpg"><source src="assets/arsenal-summer.mp4" type="video/mp4"></video><div class="case-image-grid"><div class="image-row cols-2"><figure><img src="assets/summer-01.jpg" alt="Arsenal Summer — photograph 01" loading="lazy" decoding="async"><figcaption class="mono">01 / 02</figcaption></figure><figure><img src="assets/summer-02.jpg" alt="Arsenal Summer — photograph 02" loading="lazy" decoding="async"><figcaption class="mono">02 / 02</figcaption></figure></div></div><a class="next-project" href="#oner-active"><div><span class="mono">Next project</span><h2>Oner Active <span aria-hidden="true">↗</span></h2></div><img src="assets/oner-08.jpg" alt="Oner Active campaign" loading="lazy"></a><a class="text-link" href="#work">Back to all work ↑</a></article></div>
+<div class="case-page" id="oner-active" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a href="#work" class="text-link">← Back to all work</a><span class="mono">(04) / London</span></div><h1>Oner Active</h1><dl class="case-facts"><div><dt>Client</dt><dd>Oner Active</dd></div><div><dt>Year</dt><dd>To confirm</dd></div><div><dt>Scope</dt><dd>Still life / Photography</dd></div></dl><img class="case-hero" src="assets/oner-08.jpg" alt="Oner Active campaign" loading="lazy"><div class="case-image-grid"><div class="image-row cols-1"><figure><img src="assets/oner-08.jpg" alt="Oner Active — photograph 08" loading="lazy" decoding="async"><figcaption class="mono">08 / 09</figcaption></figure></div><div class="image-row cols-3"><figure><img src="assets/oner-01.jpg" alt="Oner Active — photograph 01" loading="lazy" decoding="async"><figcaption class="mono">01 / 09</figcaption></figure><figure><img src="assets/oner-02.jpg" alt="Oner Active — photograph 02" loading="lazy" decoding="async"><figcaption class="mono">02 / 09</figcaption></figure><figure><img src="assets/oner-03.jpg" alt="Oner Active — photograph 03" loading="lazy" decoding="async"><figcaption class="mono">03 / 09</figcaption></figure></div><div class="image-row cols-2"><figure><img src="assets/oner-04.jpg" alt="Oner Active — photograph 04" loading="lazy" decoding="async"><figcaption class="mono">04 / 09</figcaption></figure><figure><img src="assets/oner-05.jpg" alt="Oner Active — photograph 05" loading="lazy" decoding="async"><figcaption class="mono">05 / 09</figcaption></figure></div><div class="image-row cols-3"><figure><img src="assets/oner-06.jpg" alt="Oner Active — photograph 06" loading="lazy" decoding="async"><figcaption class="mono">06 / 09</figcaption></figure><figure><img src="assets/oner-07.jpg" alt="Oner Active — photograph 07" loading="lazy" decoding="async"><figcaption class="mono">07 / 09</figcaption></figure><figure><img src="assets/oner-09.jpg" alt="Oner Active — photograph 09" loading="lazy" decoding="async"><figcaption class="mono">09 / 09</figcaption></figure></div></div><a class="next-project" href="#arsenal-cold-weather"><div><span class="mono">Next project</span><h2>Arsenal Cold Weather <span aria-hidden="true">↗</span></h2></div><img src="assets/coldweather-01.jpg" alt="Arsenal Cold Weather campaign" loading="lazy"></a><a class="text-link" href="#work">Back to all work ↑</a></article></div>
+<div class="case-page" id="arsenal-cold-weather" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a href="#work" class="text-link">← Back to all work</a><span class="mono">(05) / London</span></div><h1>Arsenal Cold Weather</h1><dl class="case-facts"><div><dt>Client</dt><dd>Adidas x Arsenal</dd></div><div><dt>Year</dt><dd>To confirm</dd></div><div><dt>Scope</dt><dd>Photography</dd></div></dl><img class="case-hero" src="assets/coldweather-01.jpg" alt="Arsenal Cold Weather campaign" loading="lazy"><div class="case-image-grid"><div class="image-row cols-1"><figure><img src="assets/coldweather-01.jpg" alt="Arsenal Cold Weather — photograph 01" loading="lazy" decoding="async"><figcaption class="mono">01 / 04</figcaption></figure></div><div class="image-row cols-1"><figure><img src="assets/coldweather-02.jpg" alt="Arsenal Cold Weather — photograph 02" loading="lazy" decoding="async"><figcaption class="mono">02 / 04</figcaption></figure></div><div class="image-row cols-2"><figure><img src="assets/coldweather-03.jpg" alt="Arsenal Cold Weather — photograph 03" loading="lazy" decoding="async"><figcaption class="mono">03 / 04</figcaption></figure><figure><img src="assets/coldweather-04.jpg" alt="Arsenal Cold Weather — photograph 04" loading="lazy" decoding="async"><figcaption class="mono">04 / 04</figcaption></figure></div></div><a class="next-project" href="#aspinal-sunglasses"><div><span class="mono">Next project</span><h2>Aspinal Sunglasses <span aria-hidden="true">↗</span></h2></div><img src="assets/aspinal-01.jpg" alt="Aspinal Sunglasses campaign" loading="lazy"></a><a class="text-link" href="#work">Back to all work ↑</a></article></div>
+<div class="case-page" id="aspinal-sunglasses" tabindex="-1"><header class="site-nav"><a class="brand" href="#main" aria-label="Seventy7 home"><img src="assets/seventy7-logo.png" width="410" height="118" alt="Seventy7"></a><nav class="nav-links" aria-label="Main navigation"><a href="#work">Work</a><a href="#services">Services</a><a href="#studio">Studio</a><a href="#contact">Contact</a><a class="talk" href="mailto:hello@seventy7group.com">Let's talk ↗</a></nav></header><article class="case-page-body"><div class="case-page-top"><a href="#work" class="text-link">← Back to all work</a><span class="mono">(06) / London</span></div><h1>Aspinal Sunglasses</h1><dl class="case-facts"><div><dt>Client</dt><dd>Aspinal of London</dd></div><div><dt>Year</dt><dd>To confirm</dd></div><div><dt>Scope</dt><dd>Photography</dd></div></dl><img class="case-hero" src="assets/aspinal-01.jpg" alt="Aspinal Sunglasses campaign" loading="lazy"><div class="case-image-grid"><div class="image-row cols-2"><figure><img src="assets/aspinal-01.jpg" alt="Aspinal Sunglasses — photograph 01" loading="lazy" decoding="async"><figcaption class="mono">01 / 02</figcaption></figure><figure><img src="assets/aspinal-02.jpg" alt="Aspinal Sunglasses — photograph 02" loading="lazy" decoding="async"><figcaption class="mono">02 / 02</figcaption></figure></div></div><a class="next-project" href="#arsenal-matchday"><div><span class="mono">Next project</span><h2>Matchday <span aria-hidden="true">↗</span></h2></div><img src="assets/matchday-01.jpg" alt="Matchday campaign" loading="lazy"></a><a class="text-link" href="#work">Back to all work ↑</a></article></div>
 </main>
 <footer class="site-footer"><span>© Seventy7</span><nav aria-label="Studios"><a href="#london">London</a> / <a href="#manchester">Manchester</a></nav><a href="mailto:hello@seventy7group.com">Get in touch ↗</a></footer>
 <!-- Hidden in the actual HTML. With JavaScript disabled or a parse error, the gate never covers the page. -->
 <div class="gate" id="intro-gate" hidden role="dialog" aria-modal="true" aria-label="Choose a Seventy7 studio">
 <div class="gate-split"><div class="gate-panel"><img src="assets/coldweather-01.jpg" alt="Arsenal Cold Weather studio campaign"><button class="gate-select" data-location="london"><span class="mono">Creative production / Enter studio</span><strong>London ↗</strong><span class="gate-time">Europe / London</span></button><a class="gate-map" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Piper%20Building%2C%20Peterborough%20Road%2C%20London%20SW6%203EF" target="_blank" rel="noopener">The Piper Building, Peterborough Road<br>London SW6 3EF ↗</a></div><div class="gate-panel"><img src="assets/matchday-02.jpg" alt="Arsenal Matchday campaign"><button class="gate-select" data-location="manchester"><span class="mono">Marketing & communications / Enter studio</span><strong>Manchester ↗</strong><span class="gate-time">Europe / London</span></button><span class="gate-directions mono">Copywriting / B2B / Marketing</span></div></div>
-<div class="gate-reel"><img class="gate-poster" src="assets/matchday-01.jpg" alt="" fetchpriority="high"></div><div class="gate-white" hidden></div><div class="gate-doors" hidden><div class="gate-door left"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div><div class="gate-door right"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div></div><button class="gate-skip" type="button">Skip intro ↗</button>
+<div class="gate-reel"></div><div class="gate-white" hidden></div><div class="gate-doors" hidden><div class="gate-door left"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div><div class="gate-door right"><div class="mark-stage"><img src="assets/seventy7-77mark.png" alt="" aria-hidden="true"></div></div></div><button class="gate-skip" type="button">Skip intro ↗</button>
 </div>
 <script>
-/* All content is static HTML. Intro and motion are optional enhancements.
-   A visit means this document load: internal navigation never replays the gate.
-   No persistent storage can suppress the intro on the next full visit. */
+/* Reel timing uses only requestAnimationFrame + performance.now().
+   setTimeout is an independent emergency escape, never a frame scheduler. */
 (() => {
-  'use strict';
-  const gate = document.getElementById('intro-gate');
-  if (!gate) return;
-  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const animations = new Set(), media = [];
-  let active = false, exiting = false, sequenceStopped = false, watchdog, clock;
-  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-  const q = selector => gate.querySelector(selector);
-  const all = selector => Array.from(gate.querySelectorAll(selector));
-  function unlock() {
-    document.body.classList.remove('gate-active');
-    document.querySelectorAll('[data-gate-inert]').forEach(el => { el.inert = false; el.removeAttribute('data-gate-inert'); });
+  const gate=document.getElementById('intro-gate');
+  const curtain=document.getElementById('first-paint');
+  if(!gate) { curtain?.remove(); return; }
+  const q=s=>gate.querySelector(s), all=s=>Array.from(gate.querySelectorAll(s));
+  let running=false, resting=false, exiting=false, phase='loading', deadline=0, cursor=0, shown=null, raf=0, safety=0, start=0, lastSecond=-1, chosen='london';
+  const frames=[], effects=[];
+  let markReady=false, markWidth=2682;
+  const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function cleanup(){
+    running=false;cancelAnimationFrame(raf);clearTimeout(safety);
+    effects.forEach(a=>a.cancel());frames.forEach(f=>{if(f.video)f.el.pause();});
+    gate.remove();curtain?.remove();document.body.classList.remove('gate-active','gate-ready');
+    document.querySelectorAll('[data-gate-inert]').forEach(el=>{el.inert=false;el.removeAttribute('data-gate-inert');});
   }
-  function removeGate() {
-    active = false;
-    clearTimeout(watchdog); clearInterval(clock);
-    animations.forEach(a => a.cancel()); animations.clear();
-    media.forEach(r => { if (r.video) { try { r.el.pause(); } catch (_) {} } });
-    gate.hidden = true; gate.remove(); unlock();
+  function enter(){cleanup();location.hash=chosen;document.body.dataset.studio=chosen;document.getElementById(chosen)?.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}
+  function animate(el,keyframes,duration){
+    if(!motion.matches&&typeof el.animate==='function')effects.push(el.animate(keyframes,{duration,easing:'cubic-bezier(.22,.75,.25,1)',fill:'forwards'}));
   }
-  function navigate(studio) {
-    location.hash = studio;
-    document.body.dataset.studio = studio;
-    const target = document.getElementById(studio);
-    if (target) { target.setAttribute('tabindex','-1'); target.focus({preventScroll:true}); }
-    window.scrollTo({top:0,behavior:'instant'});
-  }
-  async function animate(el, frames, duration, easing='cubic-bezier(.22,.75,.25,1)') {
-    if (!active || motion.matches || typeof el.animate !== 'function') return;
-    const animation = el.animate(frames,{duration,easing,fill:'forwards'});
-    animations.add(animation);
-    await Promise.race([animation.finished.catch(() => {}),sleep(duration+150)]);
-    // Keep the final frame until its overlay is hidden/removed; no snap-back.
-  }
-  async function exit(studio) {
-    if (!active || exiting) return;
-    exiting = true;
-    const finish = () => { removeGate(); navigate(studio); };
-    clearTimeout(watchdog); watchdog = setTimeout(finish,750);
-    // Change route beneath the opaque gate before the exit begins.
-    location.hash = studio;
-    try {
-      q('.gate-reel').hidden = true;
-      q('.gate-white').hidden = true;
-      q('.gate-doors').hidden = true;
-      await Promise.all(all('.gate-panel').map((el,i) => animate(el,[{transform:'translateX(0)'},{transform:`translateX(${i?100:-100}%)`}],520)));
-    } catch (_) {} finally { finish(); }
-  }
-  function split() {
-    if (!active || exiting) return;
-    sequenceStopped = true;
-    ['.gate-reel','.gate-white','.gate-doors','.gate-skip'].forEach(selector => q(selector).hidden = true);
-    media.forEach(r => { if (r.video) r.el.pause(); });
-    clearTimeout(watchdog);
+  function split(){
+    q('.gate-reel').hidden=true;q('.gate-white').hidden=true;q('.gate-doors').hidden=true;q('.gate-skip').hidden=true;
+    frames.forEach(f=>{if(f.video)f.el.pause();});resting=true;phase='rest';
+    clearTimeout(safety);gate.style.animation='none';gate.classList.add('is-resting');document.body.classList.add('gate-ready');
     all('.gate-select')[0].focus({preventScroll:true});
   }
-  function imageRecord(file) {
-    const el = new Image();
-    const record = {el,loaded:false,video:false};
-    record.ready = new Promise(resolve => {
-      const finish = async () => {
-        if (el.naturalWidth) {
-          try { if (el.decode) await el.decode(); } catch (_) {}
-          record.loaded = el.naturalWidth > 0;
-        }
-        resolve(record);
-      };
-      el.onload = finish; el.onerror = () => resolve(record);
-      el.src = 'assets/' + file; el.alt = ''; el.hidden = true;
-      if (el.complete) finish();
-    });
-    media.push(record); return record;
+  function exit(studio){
+    if(!running||exiting)return;
+    exiting=true;chosen=studio;location.hash=studio;
+    q('.gate-reel').hidden=true;q('.gate-white').hidden=true;q('.gate-doors').hidden=true;
+    phase='exit';deadline=performance.now()+(motion.matches?0:520);
+    safety=setTimeout(enter,750);
+    all('.gate-panel').forEach((el,i)=>animate(el,[{transform:'translateX(0)'},{transform:`translateX(${i?100:-100}%)`}],520));
   }
-  function videoRecord(file,offset) {
-    const el = document.createElement('video');
-    el.muted = true; el.defaultMuted = true; el.playsInline = true; el.loop = true; el.preload = 'auto';
-    el.setAttribute('muted',''); el.setAttribute('playsinline',''); el.setAttribute('aria-hidden','true');
-    el.hidden = true;
-    const record = {el,loaded:false,video:true};
-    record.ready = new Promise(resolve => {
-      let seeking = false;
-      const ready = () => { record.loaded = el.readyState >= 2; resolve(record); };
-      el.addEventListener('loadeddata',() => {
-        if (seeking) return;
-        seeking = true;
-        try { el.currentTime = Math.min(offset, Math.max(0,(el.duration||offset+1)-.2)); } catch (_) { ready(); }
-        if (!el.seeking) ready();
-      });
-      el.addEventListener('seeked',ready,{once:true});
-      el.addEventListener('error',() => resolve(record),{once:true});
-      el.src = 'assets/' + file; el.load();
-    });
-    media.push(record); return record;
+  function addImage(file){
+    const el=new Image();el.className='reel-frame';el.alt='';el.decoding='async';
+    const f={el,decoded:false,video:false};frames.push(f);q('.gate-reel').append(el);
+    // A frame cannot be eligible until decode() has fulfilled.
+    el.src='assets/'+file;
+    if(typeof el.decode==='function')el.decode().then(()=>{f.decoded=el.naturalWidth>0;}).catch(()=>{});
+    return f;
   }
-  async function playIntro() {
-    // Twelve distinct photographs plus three short, muted video inserts.
-    const beats = [
-      imageRecord('matchday-01.jpg'),imageRecord('tiro-01.jpg'),imageRecord('oner-08.jpg'),
-      videoRecord('arsenal-summer.mp4',.3),
-      imageRecord('coldweather-01.jpg'),imageRecord('aspinal-01.jpg'),imageRecord('summer-01.jpg'),
-      videoRecord('matchday-hero.mp4',.5),
-      imageRecord('matchday-04.jpg'),imageRecord('oner-09.jpg'),imageRecord('tiro-03.jpg'),
-      videoRecord('arsenal-summer.mp4',1.3),
-      imageRecord('coldweather-02.jpg'),imageRecord('aspinal-02.jpg'),imageRecord('matchday-07.jpg')
-    ];
-    const mark = imageRecord('seventy7-77mark.png');
-    // Begin on the first decoded photo, never wait for the full reel or clips.
-    // Remaining assets continue preloading in parallel; two seconds is the hard ceiling.
-    await Promise.race([
-      new Promise(resolve => beats.filter(r => !r.video).forEach(r => r.ready.then(() => { if(r.loaded) resolve(); }))),
-      sleep(2000)
-    ]);
-    if (!active || exiting || sequenceStopped) return;
-    if (motion.matches) { split(); return; }
-    let last = beats.find(r => r.loaded && !r.video);
-    if (!last) { split(); return; }
-    beats.forEach(r => q('.gate-reel').append(r.el));
-    const poster=q('.gate-poster');
-    if(poster) poster.hidden=true;
-    for (let i=0;i<beats.length;i++) {
-      if (!active || exiting || sequenceStopped) return;
-      // Late or failed media reuse a loaded photo; no broken or blank frame.
-      const record = beats[i].loaded ? beats[i] : last;
-      record.el.hidden = false;
-      if(!record.video) last=record;
-      if (record.video) { try { const p=record.el.play(); if(p) p.catch(() => {}); } catch (_) {} }
-      await sleep(140-Math.round(40*i/Math.max(1,beats.length-1)));
-      if (!active || exiting || sequenceStopped) return;
-      q('.gate-white').hidden = false;
-      await sleep(25);
-      record.el.hidden = true;
-      if (record.video) record.el.pause();
-      q('.gate-white').hidden = true;
+  function addVideo(file){
+    const el=document.createElement('video');el.className='reel-frame';el.muted=true;el.defaultMuted=true;el.playsInline=true;el.loop=true;el.preload='auto';el.setAttribute('muted','');el.setAttribute('playsinline','');el.setAttribute('aria-hidden','true');
+    const f={el,video:true};frames.push(f);q('.gate-reel').append(el);el.src='assets/'+file;
+    // Playback begins offscreen, never at the frame boundary. No seeking in the reel.
+    try{el.play()?.catch(()=>{});}catch(_){}
+    return f;
+  }
+  function eligible(f){return f.video?f.el.muted&&!f.el.paused&&f.el.readyState>=3:f.decoded;}
+  function nextFrame(now){
+    if(shown)shown.el.classList.remove('is-active');shown=null;
+    q('.gate-white').hidden=true;
+    while(cursor<frames.length){
+      const position=cursor++, f=frames[position];
+      if(!eligible(f))continue; // Never wait, decode or change a src at display time.
+      shown=f;f.el.classList.add('is-active');phase='image';
+      deadline=now+(position>=frames.length-3?100-(position-(frames.length-3))*5:110);
+      return;
     }
-    if (!active || exiting || sequenceStopped) return;
-    // The reel is now black. The mark is never inverted or blurred.
-    await sleep(50);
-    if (!active || exiting || sequenceStopped) return;
-    if (!mark.loaded) { split(); return; }
-    gate.style.setProperty('--native-mark',(mark.el.naturalWidth/(window.devicePixelRatio||1)/1.3)+'px');
-    q('.gate-doors').hidden = false;
-    q('.gate-reel').hidden = true;
-    await Promise.all(all('.mark-stage').map(el => animate(el,[{transform:'scale(1.3)'},{transform:'scale(.97)',offset:.7},{transform:'scale(1)'}],340)));
-    await sleep(480);
-    if (!active || exiting || sequenceStopped) return;
-    await Promise.all(all('.gate-door').map((el,i) => animate(el,[{transform:'translateX(0)'},{transform:`translateX(${i?100:-100}%)`}],780)));
-    split();
+    phase='black';deadline=now+50;
   }
-  // Wire every exit and arm the watchdog before displaying the gate.
-  try {
-    all('.gate-select').forEach(button => button.addEventListener('click',() => exit(button.dataset.location)));
-    q('.gate-skip').addEventListener('click',() => exit('london'));
-    gate.addEventListener('keydown',event => {
-      if(event.key==='Escape') { event.preventDefault(); exit('london'); }
-      if(event.key==='Tab') {
-        const targets=all('button,a').filter(el=>!el.hidden);
-        const first=targets[0],last=targets[targets.length-1];
-        if(event.shiftKey&&document.activeElement===first) {event.preventDefault();last.focus();}
-        else if(!event.shiftKey&&document.activeElement===last) {event.preventDefault();first.focus();}
+  function tick(){
+    if(!running)return;
+    const now=performance.now();
+    try{
+      if(!resting&&!exiting&&now-start>7000){cleanup();return;}
+      if(phase==='loading'){
+        if(motion.matches){split();}
+        else if(frames.slice(0,3).every(f=>f.decoded)||now>=deadline){nextFrame(now);}
+      }else if(phase==='image'&&now>=deadline){
+        q('.gate-white').hidden=false;phase='flash';deadline=now+25;
+      }else if(phase==='flash'&&now>=deadline){nextFrame(now);}
+      else if(phase==='black'&&now>=deadline){
+        if(!markReady){split();}
+        else{
+          gate.style.setProperty('--native-mark',(markWidth/(window.devicePixelRatio||1)/1.3)+'px');
+          q('.gate-doors').hidden=false;q('.gate-reel').hidden=true;
+          all('.mark-stage').forEach(el=>animate(el,[{transform:'scale(1.3)'},{transform:'scale(.97)',offset:.72},{transform:'scale(1)'}],340));
+          phase='impact';deadline=now+840; // 340ms landing + 500ms hold.
+        }
+      }else if(phase==='impact'&&now>=deadline){
+        all('.gate-door').forEach((el,i)=>animate(el,[{transform:'translateX(0)'},{transform:`translateX(${i?100:-100}%)`}],980));
+        phase='split';deadline=now+980;
+      }else if(phase==='split'&&now>=deadline){split();}
+      else if(phase==='exit'&&now>=deadline){enter();return;}
+      if(resting){
+        const second=Math.floor(now/1000);
+        if(second!==lastSecond){lastSecond=second;const time=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());all('.gate-time').forEach(el=>el.textContent=time+' / UK');}
+      }
+    }catch(_){cleanup();return;}
+    if(running)raf=requestAnimationFrame(tick);
+  }
+  try{
+    all('.gate-select').forEach(el=>el.addEventListener('click',()=>exit(el.dataset.location)));
+    q('.gate-skip').addEventListener('click',()=>exit('london'));
+    gate.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){e.preventDefault();exit('london');}
+      if(e.key==='Tab'){
+        const targets=all('button,a').filter(el=>!el.hidden), first=targets[0],last=targets[targets.length-1];
+        if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+        else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
       }
     });
-    watchdog=setTimeout(removeGate,7500);
-    active=true; gate.hidden=false; document.body.classList.add('gate-active');
+    safety=setTimeout(cleanup,7500); // Separate from visual timing, including stalled rAF.
+    running=true;gate.hidden=false;curtain?.remove();document.body.classList.add('gate-active');
     document.querySelectorAll('body > main,body > footer,body > .skip').forEach(el=>{el.inert=true;el.setAttribute('data-gate-inert','');});
     q('.gate-skip').focus({preventScroll:true});
-    const tick=()=>{const time=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());all('.gate-time').forEach(el=>el.textContent=time+' / UK');};
-    tick();clock=setInterval(tick,1000);
-    if(motion.matches) split(); else playIntro().catch(removeGate);
-    motion.addEventListener?.('change',event=>{if(event.matches&&active&&!exiting){animations.forEach(a=>a.cancel());split();}});
-  } catch (_) { removeGate(); }
+    if(!motion.matches){
+      // Fourteen real stills, with at most two already-playing video inserts.
+      ['matchday-01.jpg','tiro-01.jpg','oner-08.jpg'].forEach(addImage);
+      addVideo('arsenal-summer.mp4');
+      ['coldweather-01.jpg','aspinal-01.jpg','summer-01.jpg','matchday-04.jpg','oner-09.jpg'].forEach(addImage);
+      addVideo('matchday-hero.mp4');
+      ['tiro-03.jpg','coldweather-02.jpg','aspinal-02.jpg','matchday-07.jpg','oner-03.jpg','tiro-04.jpg'].forEach(addImage);
+      const mark=new Image();mark.src='assets/seventy7-77mark.png';mark.decode().then(()=>{markReady=true;markWidth=mark.naturalWidth;}).catch(()=>{});
+    }
+    start=performance.now();deadline=start+2000;raf=requestAnimationFrame(tick);
+    motion.addEventListener?.('change',event=>{if(event.matches&&running&&!exiting){effects.forEach(a=>a.cancel());split();}});
+  }catch(_){cleanup();}
 })();
+
 /* Case-study routes are native CSS :target pages, not accordions. */
 (() => {
   function route() {
@@ -345,6 +300,7 @@ body:has(.case-page:target) .london-page,body:has(.case-page:target) .manchester
     }
   }catch(_){}
 })();
+
 </script>
 </body>
 </html>
